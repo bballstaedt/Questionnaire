@@ -1,0 +1,28 @@
+<svg width="500" height="160" viewBox="40 20 500 160" xmlns="http://www.w3.org/2000/svg">
+  <title>Camino SLC</title>
+  <desc>Camino SLC wordmark logo — navy background</desc>
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&amp;display=swap');</style>
+  </defs>
+
+  <rect width="500" height="160" fill="#1A3D6B"/>
+
+  <!-- Open arc icon -->
+  <path d="M 139 50 A 40 40 0 1 0 139 130"
+        stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" fill="none"/>
+
+  <!-- camino: text-anchor=middle so SLC can share the same center x -->
+  <text x="307" y="105"
+        text-anchor="middle" 
+        font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif"
+        font-weight="600" font-size="64" letter-spacing="2"
+        fill="#FFFFFF">camino</text>
+
+  <!-- SLC: same center x as camino, larger and bolder to match square version -->
+  <text x="307" y="130"
+        text-anchor="middle"
+        font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif"
+        font-weight="600" font-size="26" letter-spacing="6"
+        fill="#FFFFFF" opacity="0.85">SLC</text>
+
+</svg>
