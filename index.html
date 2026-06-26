@@ -14,8 +14,33 @@
         padding: 16px 24px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
       }
       header img { height: 64px; }
+      header a { text-decoration: none; }
+
+      nav { display: flex; gap: 24px; }
+      nav a {
+        color: #ffffff;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        opacity: 0.85;
+      }
+      nav a:hover { opacity: 1; }
+
+      .lang-btn {
+        color: #ffffff;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        border: 1.5px solid rgba(255,255,255,0.5);
+        padding: 6px 14px;
+        border-radius: 20px;
+        opacity: 0.9;
+      }
+      .lang-btn:hover { opacity: 1; border-color: #ffffff; }
+
       .intro {
         max-width: 720px;
         margin: 40px auto 0;
@@ -43,9 +68,18 @@
   </head>
   <body>
 
-    <header>
-      <img src="camino-slc-logo-navy.svg" alt="Camino SLC">
-    </header>
+<header>
+  <a href="index.html">
+    <img src="camino-slc-logo.svg" alt="Camino SLC">
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="faq.html">FAQ</a>
+  </nav>
+
+  <a href="index-es.html" class="lang-btn">Español</a>
+</header>
 
     <div class="intro">
       <h1>Injured in an accident that wasn't your fault?</h1>
