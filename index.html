@@ -91,6 +91,202 @@
   <a href="index-es.html" class="lang-btn">Español</a>
 </header>
 
+    <section class="camino-hero" aria-labelledby="camino-hero-title">
+  <h1 id="camino-hero-title" class="camino-hero__sr-only">
+    Camino SLC helps car accident victims connect with medical care and legal support, with free consultation and no payment unless you win.
+  </h1>
+
+  <svg
+    class="camino-hero__svg"
+    viewBox="0 0 1640 920"
+    role="img"
+    aria-hidden="true"
+    preserveAspectRatio="xMidYMid slice"
+  >
+    <defs>
+      <!-- Soft glow for the Camino road reveal -->
+      <filter id="caminoGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="8" result="blur"></feGaussianBlur>
+        <feMerge>
+          <feMergeNode in="blur"></feMergeNode>
+          <feMergeNode in="SourceGraphic"></feMergeNode>
+        </feMerge>
+      </filter>
+
+      <!-- Slight blur for smoke -->
+      <filter id="smokeBlur" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+      </filter>
+
+      <!-- Mask used to reveal the glowing road sweep -->
+      <mask id="roadSweepMask">
+        <rect width="1640" height="920" fill="black"></rect>
+        <path
+          class="camino-hero__road-mask-path"
+          d="M 1040 915
+             C 970 820, 920 760, 870 680
+             C 820 600, 760 520, 700 460
+             C 640 400, 520 355, 380 332
+             C 255 312, 130 314, 0 324"
+          fill="none"
+          stroke="white"
+          stroke-width="120"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </mask>
+    </defs>
+
+    <!-- Background scene layers -->
+    <g class="camino-hero__scene camino-hero__scene--1">
+      <image
+        href="/assets/camino/scene-1.webp"
+        x="0"
+        y="0"
+        width="1640"
+        height="920"
+        preserveAspectRatio="xMidYMid slice"
+      ></image>
+    </g>
+
+    <!-- Placeholder hidden scene layers for future phases -->
+    <g class="camino-hero__scene camino-hero__scene--2" aria-hidden="true">
+      <image
+        href="/assets/camino/scene-2.webp"
+        x="0"
+        y="0"
+        width="1640"
+        height="920"
+        preserveAspectRatio="xMidYMid slice"
+      ></image>
+    </g>
+
+    <g class="camino-hero__scene camino-hero__scene--3" aria-hidden="true">
+      <image
+        href="/assets/camino/scene-3.webp"
+        x="0"
+        y="0"
+        width="1640"
+        height="920"
+        preserveAspectRatio="xMidYMid slice"
+      ></image>
+    </g>
+
+    <g class="camino-hero__scene camino-hero__scene--4" aria-hidden="true">
+      <image
+        href="/assets/camino/scene-4.webp"
+        x="0"
+        y="0"
+        width="1640"
+        height="920"
+        preserveAspectRatio="xMidYMid slice"
+      ></image>
+    </g>
+
+    <g class="camino-hero__scene camino-hero__scene--5" aria-hidden="true">
+      <image
+        href="/assets/camino/scene-5.webp"
+        x="0"
+        y="0"
+        width="1640"
+        height="920"
+        preserveAspectRatio="xMidYMid slice"
+      ></image>
+    </g>
+
+    <g class="camino-hero__scene camino-hero__scene--6" aria-hidden="true">
+      <image
+        href="/assets/camino/scene-6.webp"
+        x="0"
+        y="0"
+        width="1640"
+        height="920"
+        preserveAspectRatio="xMidYMid slice"
+      ></image>
+    </g>
+
+    <!-- Scene 1 overlay group -->
+    <g class="camino-hero__overlay camino-hero__overlay--scene1">
+      <!-- Gentle smoke rising from crash area -->
+      <g class="camino-hero__smoke camino-hero__smoke--1" filter="url(#smokeBlur)">
+        <ellipse cx="800" cy="435" rx="28" ry="42"></ellipse>
+        <ellipse cx="815" cy="390" rx="36" ry="52"></ellipse>
+        <ellipse cx="790" cy="342" rx="30" ry="44"></ellipse>
+      </g>
+
+      <g class="camino-hero__smoke camino-hero__smoke--2" filter="url(#smokeBlur)">
+        <ellipse cx="825" cy="452" rx="24" ry="36"></ellipse>
+        <ellipse cx="842" cy="408" rx="34" ry="46"></ellipse>
+        <ellipse cx="820" cy="360" rx="28" ry="40"></ellipse>
+      </g>
+
+      <!-- Dizziness orbit around patient's head -->
+      <g class="camino-hero__dizzy-ring">
+        <path
+          d="M 1120 245
+             C 1180 220, 1250 220, 1300 255"
+        ></path>
+        <path
+          d="M 1115 315
+             C 1175 340, 1245 340, 1305 300"
+        ></path>
+      </g>
+
+      <g class="camino-hero__stars">
+        <g class="camino-hero__star camino-hero__star--1">
+          <path d="M0,-15 L4,-4 L15,0 L4,4 L0,15 L-4,4 L-15,0 L-4,-4 Z"></path>
+        </g>
+        <g class="camino-hero__star camino-hero__star--2">
+          <path d="M0,-12 L3,-3 L12,0 L3,3 L0,12 L-3,3 L-12,0 L-3,-3 Z"></path>
+        </g>
+        <g class="camino-hero__star camino-hero__star--3">
+          <path d="M0,-13 L3,-3 L13,0 L3,3 L0,13 L-3,3 L-13,0 L-3,-3 Z"></path>
+        </g>
+      </g>
+
+      <!-- Arm pain pulse -->
+      <g class="camino-hero__pain-lines">
+        <path d="M 1170 610 Q 1190 595 1205 585"></path>
+        <path d="M 1180 630 Q 1205 625 1225 620"></path>
+        <path d="M 1172 650 Q 1195 658 1212 668"></path>
+      </g>
+
+      <!-- Camera/push emphasis: road sweep / loop-entry motif -->
+      <g class="camino-hero__road-glow" mask="url(#roadSweepMask)" filter="url(#caminoGlow)">
+        <path
+          d="M 1040 915
+             C 970 820, 920 760, 870 680
+             C 820 600, 760 520, 700 460
+             C 640 400, 520 355, 380 332
+             C 255 312, 130 314, 0 324"
+          class="camino-hero__road-stroke camino-hero__road-stroke--outer"
+        ></path>
+        <path
+          d="M 1040 915
+             C 970 820, 920 760, 870 680
+             C 820 600, 760 520, 700 460
+             C 640 400, 520 355, 380 332
+             C 255 312, 130 314, 0 324"
+          class="camino-hero__road-stroke camino-hero__road-stroke--inner"
+        ></path>
+      </g>
+
+      <!-- Soft vignette helps mobile readability and cinematic feel -->
+      <rect class="camino-hero__vignette" x="0" y="0" width="1640" height="920"></rect>
+    </g>
+
+    <!-- Reduced-motion representative text overlay -->
+    <g class="camino-hero__reduced-label" aria-hidden="true">
+      <rect x="70" y="730" width="650" height="120" rx="24"></rect>
+      <text x="110" y="785">Camino SLC</text>
+      <text x="110" y="823">
+        Car accident help, medical care, and legal support
+      </text>
+    </g>
+  </svg>
+</section>
+
+    
     <div class="intro">
       <h1>Injured in an accident that wasn't your fault?</h1>
       <!--
