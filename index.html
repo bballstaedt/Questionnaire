@@ -1171,6 +1171,194 @@
 }
 
 
+
+      /* ---------- Scene 2 clean overlay revision ---------- */
+
+.camino-hero__overlay--scene2 {
+  opacity: 0;
+  pointer-events: none;
+  animation: caminoScene2Visibility var(--camino-loop) linear infinite;
+}
+
+.camino-hero__s2-phone-focus {
+  fill: rgba(255, 255, 255, 0.12);
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS2PhoneFocus var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s2-button-glow {
+  fill: rgba(255, 255, 255, 0.18);
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 2;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS2ButtonGlow var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s2-send-burst {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 5;
+  stroke-linecap: round;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS2SendBurst var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s2-send-path {
+  fill: none;
+  stroke: rgba(18, 63, 139, 0.92);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 3 20;
+  stroke-dashoffset: 220;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS2SendPath var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s2-send-plane {
+  fill: #ffffff;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  transform-origin: center center;
+  animation: caminoS2SendPlane var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS2PhoneFocus {
+  0%,
+  19% {
+    opacity: 0;
+  }
+
+  22% {
+    opacity: 0.42;
+  }
+
+  29% {
+    opacity: 0.18;
+  }
+
+  42%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS2ButtonGlow {
+  0%,
+  24% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  27% {
+    opacity: 0.85;
+    transform: scale(1.025);
+  }
+
+  31% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  36%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes caminoS2SendBurst {
+  0%,
+  27% {
+    opacity: 0;
+  }
+
+  29% {
+    opacity: 1;
+  }
+
+  32% {
+    opacity: 0.55;
+  }
+
+  35%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS2SendPath {
+  0%,
+  28% {
+    opacity: 0;
+    stroke-dashoffset: 220;
+  }
+
+  30% {
+    opacity: 0.9;
+    stroke-dashoffset: 150;
+  }
+
+  35% {
+    opacity: 1;
+    stroke-dashoffset: 40;
+  }
+
+  42% {
+    opacity: 0.75;
+    stroke-dashoffset: -80;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: -140;
+  }
+}
+
+@keyframes caminoS2SendPlane {
+  0%,
+  28% {
+    opacity: 0;
+    transform: translate(622px, 560px) rotate(-33deg) scale(0.55);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translate(700px, 492px) rotate(-29deg) scale(0.75);
+  }
+
+  33% {
+    opacity: 1;
+    transform: translate(850px, 428px) rotate(-19deg) scale(0.9);
+  }
+
+  36% {
+    opacity: 1;
+    transform: translate(1040px, 382px) rotate(-13deg) scale(1);
+  }
+
+  39% {
+    opacity: 1;
+    transform: translate(1260px, 286px) rotate(-24deg) scale(0.95);
+  }
+
+  43% {
+    opacity: 0.9;
+    transform: translate(1475px, 145px) rotate(-33deg) scale(0.82);
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+    transform: translate(1575px, 80px) rotate(-35deg) scale(0.7);
+  }
+}
+      
+
       
 /* ---------- Responsive tuning ---------- */
 
@@ -1424,187 +1612,52 @@
       <rect class="camino-hero__vignette" x="0" y="0" width="1640" height="920"></rect>
     </g>
 
-/* ---------- Scene 2 clean overlay revision ---------- */
 
-.camino-hero__s2-phone-focus {
-  fill: rgba(255, 255, 255, 0.12);
-  filter: url(#caminoGlow);
-  opacity: 0;
-  animation: caminoS2PhoneFocus var(--camino-loop) ease-in-out infinite;
-}
+<!-- Scene 2 overlay group -->
+<g class="camino-hero__overlay camino-hero__overlay--scene2">
 
-.camino-hero__s2-button-glow {
-  fill: rgba(255, 255, 255, 0.18);
-  stroke: rgba(255, 255, 255, 0.5);
-  stroke-width: 2;
-  filter: url(#caminoGlow);
-  opacity: 0;
-  animation: caminoS2ButtonGlow var(--camino-loop) ease-in-out infinite;
-}
+  <!-- Subtle focus glow on the existing phone, not a replacement screen -->
+  <ellipse
+    class="camino-hero__s2-phone-focus"
+    cx="1190"
+    cy="575"
+    rx="215"
+    ry="300"
+  ></ellipse>
 
-.camino-hero__s2-send-burst {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.95);
-  stroke-width: 5;
-  stroke-linecap: round;
-  filter: url(#caminoGlow);
-  opacity: 0;
-  animation: caminoS2SendBurst var(--camino-loop) ease-in-out infinite;
-}
+  <!-- Subtle glow over the existing submit/check area -->
+  <rect
+    class="camino-hero__s2-button-glow"
+    x="1036"
+    y="768"
+    width="300"
+    height="106"
+    rx="22"
+  ></rect>
 
-.camino-hero__s2-send-path {
-  fill: none;
-  stroke: rgba(18, 63, 139, 0.92);
-  stroke-width: 7;
-  stroke-linecap: round;
-  stroke-dasharray: 3 20;
-  stroke-dashoffset: 220;
-  filter: url(#caminoGlow);
-  opacity: 0;
-  animation: caminoS2SendPath var(--camino-loop) ease-in-out infinite;
-}
+  <!-- Clean burst from the patient's small phone -->
+  <g class="camino-hero__s2-send-burst">
+    <circle cx="622" cy="560" r="18"></circle>
+    <path d="M 602 546 L 582 528"></path>
+    <path d="M 620 538 L 618 510"></path>
+    <path d="M 642 546 L 664 526"></path>
+    <path d="M 645 566 L 675 562"></path>
+  </g>
 
-.camino-hero__s2-send-plane {
-  fill: #ffffff;
-  filter: url(#caminoGlow);
-  opacity: 0;
-  transform-origin: center center;
-  animation: caminoS2SendPlane var(--camino-loop) ease-in-out infinite;
-}
+  <!-- Rainbow-style dotted send path from patient's phone up and right -->
+  <path
+    class="camino-hero__s2-send-path"
+    d="M 622 560
+       C 715 470, 835 420, 980 405
+       C 1160 386, 1328 270, 1535 118"
+  ></path>
 
-@keyframes caminoS2PhoneFocus {
-  0%,
-  19% {
-    opacity: 0;
-  }
+  <!-- Traveling paper plane -->
+  <g class="camino-hero__s2-send-plane">
+    <path d="M 0 -13 L 38 0 L 0 13 L 9 0 Z"></path>
+  </g>
 
-  22% {
-    opacity: 0.42;
-  }
-
-  29% {
-    opacity: 0.18;
-  }
-
-  42%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes caminoS2ButtonGlow {
-  0%,
-  24% {
-    opacity: 0;
-    transform: scale(1);
-  }
-
-  27% {
-    opacity: 0.85;
-    transform: scale(1.025);
-  }
-
-  31% {
-    opacity: 0.35;
-    transform: scale(1);
-  }
-
-  36%,
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
-@keyframes caminoS2SendBurst {
-  0%,
-  27% {
-    opacity: 0;
-  }
-
-  29% {
-    opacity: 1;
-  }
-
-  32% {
-    opacity: 0.55;
-  }
-
-  35%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes caminoS2SendPath {
-  0%,
-  28% {
-    opacity: 0;
-    stroke-dashoffset: 220;
-  }
-
-  30% {
-    opacity: 0.9;
-    stroke-dashoffset: 150;
-  }
-
-  35% {
-    opacity: 1;
-    stroke-dashoffset: 40;
-  }
-
-  42% {
-    opacity: 0.75;
-    stroke-dashoffset: -80;
-  }
-
-  46%,
-  100% {
-    opacity: 0;
-    stroke-dashoffset: -140;
-  }
-}
-
-@keyframes caminoS2SendPlane {
-  0%,
-  28% {
-    opacity: 0;
-    transform: translate(622px, 560px) rotate(-33deg) scale(0.55);
-  }
-
-  30% {
-    opacity: 1;
-    transform: translate(700px, 492px) rotate(-29deg) scale(0.75);
-  }
-
-  33% {
-    opacity: 1;
-    transform: translate(850px, 428px) rotate(-19deg) scale(0.9);
-  }
-
-  36% {
-    opacity: 1;
-    transform: translate(1040px, 382px) rotate(-13deg) scale(1);
-  }
-
-  39% {
-    opacity: 1;
-    transform: translate(1260px, 286px) rotate(-24deg) scale(0.95);
-  }
-
-  43% {
-    opacity: 0.9;
-    transform: translate(1475px, 145px) rotate(-33deg) scale(0.82);
-  }
-
-  46%,
-  100% {
-    opacity: 0;
-    transform: translate(1575px, 80px) rotate(-35deg) scale(0.7);
-  }
-}
-
-
+</g>
 
 
     
