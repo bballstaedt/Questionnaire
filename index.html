@@ -317,24 +317,28 @@
 @keyframes caminoSmokeRise1 {
   0%,
   2% {
-    transform: translateY(10px) translateX(0px) scale(0.92);
+    transform: translateY(10px);
     opacity: 0;
   }
+
   5% {
-    transform: translateY(0px) translateX(0px) scale(1);
+    transform: translateY(0px);
     opacity: 0.72;
   }
+
   11% {
-    transform: translateY(-18px) translateX(-5px) scale(1.06);
-    opacity: 0.64;
+    transform: translateY(-22px);
+    opacity: 0.6;
   }
+
   18% {
-    transform: translateY(-36px) translateX(8px) scale(1.16);
+    transform: translateY(-46px);
     opacity: 0.18;
   }
+
   20%,
   100% {
-    transform: translateY(-48px) translateX(12px) scale(1.22);
+    transform: translateY(-58px);
     opacity: 0;
   }
 }
@@ -342,24 +346,28 @@
 @keyframes caminoSmokeRise2 {
   0%,
   3% {
-    transform: translateY(12px) translateX(2px) scale(0.88);
+    transform: translateY(12px);
     opacity: 0;
   }
+
   6% {
-    transform: translateY(0px) translateX(0px) scale(1);
-    opacity: 0.58;
+    transform: translateY(0px);
+    opacity: 0.56;
   }
+
   12% {
-    transform: translateY(-22px) translateX(7px) scale(1.08);
-    opacity: 0.48;
+    transform: translateY(-24px);
+    opacity: 0.44;
   }
+
   18% {
-    transform: translateY(-42px) translateX(-4px) scale(1.18);
+    transform: translateY(-50px);
     opacity: 0.12;
   }
+
   20%,
   100% {
-    transform: translateY(-56px) translateX(-8px) scale(1.24);
+    transform: translateY(-62px);
     opacity: 0;
   }
 }
@@ -758,11 +766,11 @@
       </g>
 
       <!-- Arm pain pulse -->
-      <g class="camino-hero__pain-lines">
-        <path d="M 1170 610 Q 1190 595 1205 585"></path>
-        <path d="M 1180 630 Q 1205 625 1225 620"></path>
-        <path d="M 1172 650 Q 1195 658 1212 668"></path>
-      </g>
+<g class="camino-hero__pain-lines">
+  <path class="camino-hero__pain-line camino-hero__pain-line--1" d="M 1195 510 Q 1212 500 1228 490"></path>
+  <path class="camino-hero__pain-line camino-hero__pain-line--2" d="M 1200 535 Q 1224 532 1244 528"></path>
+  <path class="camino-hero__pain-line camino-hero__pain-line--3" d="M 1193 560 Q 1215 570 1232 585"></path>
+</g>
 
       <!-- Camera/push emphasis: road sweep / loop-entry motif -->
       <g class="camino-hero__road-glow" mask="url(#roadSweepMask)" filter="url(#caminoGlow)">
