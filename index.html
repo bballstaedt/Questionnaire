@@ -1424,165 +1424,185 @@
       <rect class="camino-hero__vignette" x="0" y="0" width="1640" height="920"></rect>
     </g>
 
-<!-- Scene 2 overlay group -->
-<g class="camino-hero__overlay camino-hero__overlay--scene2">
-  <!-- Soft glow behind phone -->
-  <ellipse
-    class="camino-hero__phone-glow"
-    cx="1188"
-    cy="570"
-    rx="220"
-    ry="320"
-  ></ellipse>
+/* ---------- Scene 2 clean overlay revision ---------- */
 
-  <!-- Editable phone UI overlay -->
-  <g class="camino-hero__phone-ui">
-    <!-- Phone screen cover -->
-    <rect
-      class="camino-hero__phone-screen"
-      x="1044"
-      y="262"
-      width="296"
-      height="606"
-      rx="34"
-    ></rect>
+.camino-hero__s2-phone-focus {
+  fill: rgba(255, 255, 255, 0.12);
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS2PhoneFocus var(--camino-loop) ease-in-out infinite;
+}
 
-    <!-- Address bar -->
-    <rect
-      class="camino-hero__address-bar"
-      x="1066"
-      y="298"
-      width="252"
-      height="56"
-      rx="18"
-    ></rect>
+.camino-hero__s2-button-glow {
+  fill: rgba(255, 255, 255, 0.18);
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 2;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS2ButtonGlow var(--camino-loop) ease-in-out infinite;
+}
 
-    <g class="camino-hero__lock-icon">
-      <rect x="1091" y="319" width="16" height="15" rx="3"></rect>
-      <path d="M1095 319 V312 C1095 305 1103 305 1103 312 V319"></path>
-    </g>
+.camino-hero__s2-send-burst {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 5;
+  stroke-linecap: round;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS2SendBurst var(--camino-loop) ease-in-out infinite;
+}
 
-    <text class="camino-hero__address-text" x="1122" y="334">
-      caminoslc.com
-    </text>
+.camino-hero__s2-send-path {
+  fill: none;
+  stroke: rgba(18, 63, 139, 0.92);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 3 20;
+  stroke-dashoffset: 220;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS2SendPath var(--camino-loop) ease-in-out infinite;
+}
 
-    <!-- Camino mark on phone -->
-    <path
-      class="camino-hero__phone-c"
-      d="M 1118 430
-         C 1091 430, 1074 447, 1074 470
-         C 1074 496, 1093 512, 1118 512"
-    ></path>
+.camino-hero__s2-send-plane {
+  fill: #ffffff;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  transform-origin: center center;
+  animation: caminoS2SendPlane var(--camino-loop) ease-in-out infinite;
+}
 
-    <text class="camino-hero__phone-logo-text" x="1150" y="498">
-      camino
-    </text>
+@keyframes caminoS2PhoneFocus {
+  0%,
+  19% {
+    opacity: 0;
+  }
 
-    <!-- Free consultation text -->
-    <text class="camino-hero__phone-main-text" x="1192" y="586" text-anchor="middle">
-      FREE
-    </text>
+  22% {
+    opacity: 0.42;
+  }
 
-    <text class="camino-hero__phone-sub-text" x="1192" y="646" text-anchor="middle">
-      CONSULTATION
-    </text>
+  29% {
+    opacity: 0.18;
+  }
 
-    <text class="camino-hero__phone-sub-text" x="1192" y="716" text-anchor="middle">
-      CONSULTA
-    </text>
+  42%,
+  100% {
+    opacity: 0;
+  }
+}
 
-    <text class="camino-hero__phone-sub-text" x="1192" y="772" text-anchor="middle">
-      GRATIS
-    </text>
+@keyframes caminoS2ButtonGlow {
+  0%,
+  24% {
+    opacity: 0;
+    transform: scale(1);
+  }
 
-    <!-- Submit button -->
-    <g class="camino-hero__submit-button">
-      <rect x="1050" y="790" width="286" height="86" rx="18"></rect>
+  27% {
+    opacity: 0.85;
+    transform: scale(1.025);
+  }
 
-      <circle
-        class="camino-hero__submit-check-circle"
-        cx="1104"
-        cy="833"
-        r="28"
-      ></circle>
+  31% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
 
-      <path
-        class="camino-hero__submit-check"
-        d="M 1090 833 L1101 844 L1120 821"
-      ></path>
+  36%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
 
-      <path
-        class="camino-hero__submit-dots"
-        d="M 1140 833
-           C 1168 848, 1197 848, 1224 831"
-      ></path>
+@keyframes caminoS2SendBurst {
+  0%,
+  27% {
+    opacity: 0;
+  }
 
-      <path
-        class="camino-hero__paper-plane"
-        d="M 1240 815 L1284 797 L1266 844 L1253 828 L1240 815 Z"
-      ></path>
-    </g>
-  </g>
+  29% {
+    opacity: 1;
+  }
 
-  <!-- Large Camino C above phone -->
-  <g class="camino-hero__big-c-wrap">
-    <circle class="camino-hero__big-c-halo" cx="1202" cy="146" r="92"></circle>
+  32% {
+    opacity: 0.55;
+  }
 
-    <path
-      class="camino-hero__big-c"
-      d="M 1242 94
-         C 1193 76, 1160 102, 1157 146
-         C 1154 190, 1191 218, 1237 202"
-    ></path>
+  35%,
+  100% {
+    opacity: 0;
+  }
+}
 
-    <g class="camino-hero__big-c-rays">
-      <path d="M 1201 58 L1209 24"></path>
-      <path d="M 1260 78 L1288 52"></path>
-      <path d="M 1282 138 L1318 133"></path>
-      <path d="M 1268 198 L1297 220"></path>
-      <path d="M 1144 78 L1117 54"></path>
-      <path d="M 1122 146 L1088 149"></path>
-    </g>
-  </g>
+@keyframes caminoS2SendPath {
+  0%,
+  28% {
+    opacity: 0;
+    stroke-dashoffset: 220;
+  }
 
-  <!-- Dotted send path beginning from the patient's small phone -->
-  <path
-    class="camino-hero__send-path"
-    d="M 618 575
-       C 720 486, 842 425, 980 408
-       C 1140 389, 1290 292, 1492 150"
-  ></path>
+  30% {
+    opacity: 0.9;
+    stroke-dashoffset: 150;
+  }
 
-  <!-- Burst from small phone -->
-  <g class="camino-hero__send-burst">
-    <path d="M 602 548 L 582 530"></path>
-    <path d="M 618 541 L 612 512"></path>
-    <path d="M 636 546 L 657 528"></path>
-    <circle cx="620" cy="555" r="18"></circle>
-  </g>
+  35% {
+    opacity: 1;
+    stroke-dashoffset: 40;
+  }
 
-  <!-- Traveling send plane -->
-  <g class="camino-hero__send-plane">
-    <path d="M 0 -12 L 34 0 L 0 12 L 8 0 Z"></path>
-  </g>
+  42% {
+    opacity: 0.75;
+    stroke-dashoffset: -80;
+  }
 
-  <!-- Larger, clearer transition sweep -->
-  <g class="camino-hero__scene2-transition-sweep">
-    <path
-      class="camino-hero__scene2-transition-road camino-hero__scene2-transition-road--outer"
-      d="M 1410 980
-         C 1290 860, 1182 760, 1058 680
-         C 920 590, 780 500, 620 432"
-    ></path>
+  46%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: -140;
+  }
+}
 
-    <path
-      class="camino-hero__scene2-transition-road camino-hero__scene2-transition-road--inner"
-      d="M 1410 980
-         C 1290 860, 1182 760, 1058 680
-         C 920 590, 780 500, 620 432"
-    ></path>
-  </g>
-</g>
+@keyframes caminoS2SendPlane {
+  0%,
+  28% {
+    opacity: 0;
+    transform: translate(622px, 560px) rotate(-33deg) scale(0.55);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translate(700px, 492px) rotate(-29deg) scale(0.75);
+  }
+
+  33% {
+    opacity: 1;
+    transform: translate(850px, 428px) rotate(-19deg) scale(0.9);
+  }
+
+  36% {
+    opacity: 1;
+    transform: translate(1040px, 382px) rotate(-13deg) scale(1);
+  }
+
+  39% {
+    opacity: 1;
+    transform: translate(1260px, 286px) rotate(-24deg) scale(0.95);
+  }
+
+  43% {
+    opacity: 0.9;
+    transform: translate(1475px, 145px) rotate(-33deg) scale(0.82);
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+    transform: translate(1575px, 80px) rotate(-35deg) scale(0.7);
+  }
+}
 
 
 
