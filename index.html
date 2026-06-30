@@ -73,6 +73,519 @@
       nav a { font-size: 14px; }     /* was 15px */
     }
 
+.camino-hero {
+  --camino-loop: 20s;
+  --camino-blue: #123f8b;
+  --camino-blue-2: #1e5dc2;
+  --camino-blue-light: #8fc7ff;
+  --camino-glow: #bfe3ff;
+  --camino-white: #ffffff;
+  --camino-smoke: rgba(255, 255, 255, 0.48);
+  --camino-smoke-2: rgba(220, 235, 255, 0.28);
+  --camino-orange: #ff7a59;
+  --camino-orange-soft: rgba(255, 122, 89, 0.7);
+  --camino-vignette: rgba(9, 26, 58, 0.18);
+
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #dceafb;
+}
+
+.camino-hero__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1640 / 920;
+  min-height: 420px;
+  max-height: 82svh;
+}
+
+.camino-hero__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.camino-hero__scene {
+  opacity: 0;
+  transform-origin: center center;
+}
+
+/* Scene 1 visible during opening part of the master timeline */
+.camino-hero__scene--1 {
+  opacity: 1;
+  animation:
+    caminoScene1Visibility var(--camino-loop) linear infinite,
+    caminoScene1Push var(--camino-loop) ease-in-out infinite;
+}
+
+/* Hidden placeholders for future scenes */
+.camino-hero__scene--2,
+.camino-hero__scene--3,
+.camino-hero__scene--4,
+.camino-hero__scene--5,
+.camino-hero__scene--6 {
+  opacity: 0;
+}
+
+.camino-hero__overlay--scene1 {
+  opacity: 1;
+  animation: caminoScene1Visibility var(--camino-loop) linear infinite;
+}
+
+.camino-hero__smoke ellipse {
+  fill: var(--camino-smoke);
+}
+
+.camino-hero__smoke--1 {
+  opacity: 0.7;
+  animation: caminoSmokeRise1 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__smoke--2 {
+  fill: var(--camino-smoke-2);
+  opacity: 0.58;
+  animation: caminoSmokeRise2 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__dizzy-ring path {
+  fill: none;
+  stroke: rgba(34, 72, 128, 0.55);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 10 18;
+}
+
+.camino-hero__dizzy-ring {
+  transform-origin: 1210px 275px;
+  animation: caminoDizzyOrbit var(--camino-loop) linear infinite;
+}
+
+.camino-hero__stars .camino-hero__star path {
+  fill: var(--camino-orange);
+}
+
+.camino-hero__star {
+  opacity: 0.85;
+  transform-box: fill-box;
+  transform-origin: center center;
+}
+
+.camino-hero__star--1 {
+  transform: translate(1145px, 226px);
+  animation: caminoStarPulse1 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__star--2 {
+  transform: translate(1265px, 225px);
+  animation: caminoStarPulse2 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__star--3 {
+  transform: translate(1360px, 258px);
+  animation: caminoStarPulse3 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__pain-lines path {
+  fill: none;
+  stroke: var(--camino-orange-soft);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+.camino-hero__pain-lines {
+  animation: caminoPainPulse var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__road-glow {
+  opacity: 0;
+  animation: caminoRoadReveal var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__road-stroke {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.camino-hero__road-stroke--outer {
+  stroke: rgba(182, 222, 255, 0.8);
+  stroke-width: 28;
+}
+
+.camino-hero__road-stroke--inner {
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 10;
+}
+
+.camino-hero__road-mask-path {
+  stroke-dasharray: 1800;
+  stroke-dashoffset: 1800;
+  animation: caminoRoadMaskDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__vignette {
+  fill: url(#none);
+  pointer-events: none;
+  opacity: 1;
+  fill: transparent;
+  box-shadow: none;
+}
+
+.camino-hero__vignette {
+  fill: rgba(0, 0, 0, 0);
+}
+
+.camino-hero__overlay--scene1::before {
+  content: "";
+}
+
+/* Reduced-motion label hidden in normal mode */
+.camino-hero__reduced-label {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.camino-hero__reduced-label rect {
+  fill: rgba(10, 33, 74, 0.82);
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 2;
+}
+
+.camino-hero__reduced-label text:first-of-type {
+  fill: #ffffff;
+  font-size: 36px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.camino-hero__reduced-label text:last-of-type {
+  fill: rgba(255, 255, 255, 0.92);
+  font-size: 24px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.camino-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at center, transparent 52%, rgba(10, 30, 66, 0.08) 78%, rgba(10, 30, 66, 0.18) 100%);
+}
+
+/* ---------- Timeline keyframes ---------- */
+
+/* Scene 1 occupies the first portion of the 20-second timeline */
+@keyframes caminoScene1Visibility {
+  0%,
+  18% {
+    opacity: 1;
+  }
+  21%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene1Push {
+  0% {
+    transform: scale(1) translateX(0px) translateY(0px);
+  }
+  8% {
+    transform: scale(1.014) translateX(-6px) translateY(-2px);
+  }
+  16% {
+    transform: scale(1.026) translateX(-14px) translateY(-6px);
+  }
+  20% {
+    transform: scale(1.04) translateX(-24px) translateY(-10px);
+  }
+  100% {
+    transform: scale(1.04) translateX(-24px) translateY(-10px);
+  }
+}
+
+@keyframes caminoSmokeRise1 {
+  0%,
+  2% {
+    transform: translateY(10px) translateX(0px) scale(0.92);
+    opacity: 0;
+  }
+  5% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.72;
+  }
+  11% {
+    transform: translateY(-18px) translateX(-5px) scale(1.06);
+    opacity: 0.64;
+  }
+  18% {
+    transform: translateY(-36px) translateX(8px) scale(1.16);
+    opacity: 0.18;
+  }
+  20%,
+  100% {
+    transform: translateY(-48px) translateX(12px) scale(1.22);
+    opacity: 0;
+  }
+}
+
+@keyframes caminoSmokeRise2 {
+  0%,
+  3% {
+    transform: translateY(12px) translateX(2px) scale(0.88);
+    opacity: 0;
+  }
+  6% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.58;
+  }
+  12% {
+    transform: translateY(-22px) translateX(7px) scale(1.08);
+    opacity: 0.48;
+  }
+  18% {
+    transform: translateY(-42px) translateX(-4px) scale(1.18);
+    opacity: 0.12;
+  }
+  20%,
+  100% {
+    transform: translateY(-56px) translateX(-8px) scale(1.24);
+    opacity: 0;
+  }
+}
+
+@keyframes caminoDizzyOrbit {
+  0%,
+  2% {
+    transform: rotate(-10deg);
+    opacity: 0;
+  }
+  5% {
+    transform: rotate(0deg);
+    opacity: 0.72;
+  }
+  10% {
+    transform: rotate(5deg);
+    opacity: 0.78;
+  }
+  15% {
+    transform: rotate(-4deg);
+    opacity: 0.72;
+  }
+  18% {
+    transform: rotate(8deg);
+    opacity: 0.62;
+  }
+  20%,
+  100% {
+    transform: rotate(10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes caminoStarPulse1 {
+  0%,
+  3% {
+    opacity: 0;
+    transform: translate(1145px, 226px) scale(0.7) rotate(0deg);
+  }
+  6% {
+    opacity: 1;
+    transform: translate(1145px, 226px) scale(1) rotate(12deg);
+  }
+  10% {
+    opacity: 0.9;
+    transform: translate(1138px, 220px) scale(1.1) rotate(25deg);
+  }
+  15% {
+    opacity: 0.8;
+    transform: translate(1148px, 230px) scale(0.94) rotate(42deg);
+  }
+  19% {
+    opacity: 0;
+    transform: translate(1155px, 220px) scale(0.7) rotate(52deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(1155px, 220px) scale(0.7) rotate(52deg);
+  }
+}
+
+@keyframes caminoStarPulse2 {
+  0%,
+  4% {
+    opacity: 0;
+    transform: translate(1265px, 225px) scale(0.65) rotate(0deg);
+  }
+  7% {
+    opacity: 1;
+    transform: translate(1265px, 225px) scale(1) rotate(-10deg);
+  }
+  12% {
+    opacity: 0.92;
+    transform: translate(1270px, 216px) scale(1.08) rotate(8deg);
+  }
+  16% {
+    opacity: 0.72;
+    transform: translate(1260px, 228px) scale(0.92) rotate(28deg);
+  }
+  19%,
+  100% {
+    opacity: 0;
+    transform: translate(1276px, 220px) scale(0.68) rotate(38deg);
+  }
+}
+
+@keyframes caminoStarPulse3 {
+  0%,
+  5% {
+    opacity: 0;
+    transform: translate(1360px, 258px) scale(0.72) rotate(0deg);
+  }
+  8% {
+    opacity: 1;
+    transform: translate(1360px, 258px) scale(1) rotate(10deg);
+  }
+  12% {
+    opacity: 0.9;
+    transform: translate(1350px, 248px) scale(1.1) rotate(20deg);
+  }
+  16% {
+    opacity: 0.72;
+    transform: translate(1364px, 264px) scale(0.9) rotate(38deg);
+  }
+  19%,
+  100% {
+    opacity: 0;
+    transform: translate(1368px, 250px) scale(0.7) rotate(48deg);
+  }
+}
+
+@keyframes caminoPainPulse {
+  0%,
+  4% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  7% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+  13% {
+    opacity: 0.75;
+    transform: scale(0.97);
+  }
+  16% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  19% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes caminoRoadMaskDraw {
+  0% {
+    stroke-dashoffset: 1800;
+  }
+  3% {
+    stroke-dashoffset: 1800;
+  }
+  11% {
+    stroke-dashoffset: 920;
+  }
+  18% {
+    stroke-dashoffset: 0;
+  }
+  20%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoRoadReveal {
+  0%,
+  2% {
+    opacity: 0;
+  }
+  6% {
+    opacity: 0.72;
+  }
+  12% {
+    opacity: 0.92;
+  }
+  18% {
+    opacity: 0.85;
+  }
+  20%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Responsive tuning ---------- */
+
+@media (max-width: 900px) {
+  .camino-hero__svg {
+    min-height: 360px;
+    max-height: 72svh;
+  }
+}
+
+@media (max-width: 640px) {
+  .camino-hero__svg {
+    min-height: 300px;
+    max-height: 68svh;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .camino-hero__scene,
+  .camino-hero__overlay,
+  .camino-hero__road-mask-path,
+  .camino-hero__star,
+  .camino-hero__smoke,
+  .camino-hero__dizzy-ring,
+  .camino-hero__pain-lines,
+  .camino-hero__road-glow {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .camino-hero__scene--1 {
+    opacity: 1;
+    transform: none;
+  }
+
+  .camino-hero__overlay--scene1 {
+    opacity: 0;
+  }
+
+  .camino-hero__reduced-label {
+    opacity: 1;
+  }
+}
       
     </style>
   </head>
