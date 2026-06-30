@@ -127,7 +127,13 @@
 }
 
 /* Hidden placeholders for future scenes */
-.camino-hero__scene--2,
+.camino-hero__scene--2 {
+  opacity: 0;
+  animation:
+    caminoScene2Visibility var(--camino-loop) linear infinite,
+    caminoScene2Push var(--camino-loop) ease-in-out infinite;
+}
+
 .camino-hero__scene--3,
 .camino-hero__scene--4,
 .camino-hero__scene--5,
@@ -550,6 +556,476 @@
   }
 }
 
+/* ---------- Scene 2: Reach out to CaminoSLC.com ---------- */
+
+.camino-hero__overlay--scene2 {
+  opacity: 0;
+  pointer-events: none;
+  animation: caminoScene2Visibility var(--camino-loop) linear infinite;
+}
+
+.camino-hero__phone-glow {
+  fill: rgba(150, 210, 255, 0.24);
+  filter: url(#caminoGlow);
+  transform-origin: 1180px 570px;
+  animation: caminoPhoneGlow var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__phone-ui {
+  transform-origin: 1185px 570px;
+  animation: caminoPhoneUIFocus var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__phone-screen {
+  fill: rgba(255, 255, 255, 0.96);
+}
+
+.camino-hero__address-bar {
+  fill: #eef1f5;
+}
+
+.camino-hero__lock-icon rect {
+  fill: #8b97a8;
+}
+
+.camino-hero__lock-icon path {
+  fill: none;
+  stroke: #8b97a8;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.camino-hero__address-text {
+  fill: #142d62;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.camino-hero__phone-c {
+  fill: none;
+  stroke: #123f8b;
+  stroke-width: 18;
+  stroke-linecap: round;
+  stroke-dasharray: 210;
+  stroke-dashoffset: 210;
+  animation: caminoPhoneCDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__phone-logo-text {
+  fill: #123f8b;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 58px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.camino-hero__phone-main-text {
+  fill: #17845d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 68px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.camino-hero__phone-sub-text {
+  fill: #17845d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.camino-hero__submit-button {
+  transform-origin: 1184px 823px;
+  animation: caminoSubmitTap var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__submit-button rect {
+  fill: #123f8b;
+}
+
+.camino-hero__submit-check-circle {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 7;
+}
+
+.camino-hero__submit-check {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 70;
+  stroke-dashoffset: 70;
+  animation: caminoSubmitCheckDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__submit-dots {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.86);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 2 18;
+  animation: caminoSubmitDots var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__paper-plane {
+  fill: #ffffff;
+  transform-origin: 1265px 806px;
+  animation: caminoPaperPlaneButton var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__big-c-wrap {
+  transform-origin: 1198px 155px;
+  animation: caminoBigCPulse var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__big-c {
+  fill: none;
+  stroke: #123f8b;
+  stroke-width: 26;
+  stroke-linecap: round;
+  stroke-dasharray: 330;
+  stroke-dashoffset: 330;
+  filter: url(#caminoGlow);
+  animation: caminoBigCDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__big-c-rays path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.82);
+  stroke-width: 7;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: caminoBigCRays var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__send-path {
+  fill: none;
+  stroke: #123f8b;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 2 22;
+  opacity: 0;
+  animation: caminoSendPathDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__send-plane {
+  fill: #ffffff;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  transform-origin: center center;
+  animation: caminoSendPlaneMove var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__scene2-transition-road {
+  fill: none;
+  stroke: rgba(190, 230, 255, 0.92);
+  stroke-width: 14;
+  stroke-linecap: round;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoScene2RoadOut var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoScene2Visibility {
+  0%,
+  17% {
+    opacity: 0;
+  }
+
+  19% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes caminoScene2Push {
+  0%,
+  18% {
+    transform: scale(1.035) translateX(12px) translateY(0px);
+  }
+
+  24% {
+    transform: scale(1.012) translateX(4px) translateY(0px);
+  }
+
+  34%,
+  100% {
+    transform: scale(1.02) translateX(-4px) translateY(-2px);
+  }
+}
+
+@keyframes caminoPhoneUIFocus {
+  0%,
+  18% {
+    opacity: 0;
+    transform: scale(0.94) translateY(22px);
+  }
+
+  21% {
+    opacity: 1;
+    transform: scale(1.025) translateY(0px);
+  }
+
+  26% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+@keyframes caminoPhoneGlow {
+  0%,
+  19% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  23% {
+    opacity: 0.72;
+    transform: scale(1.02);
+  }
+
+  31% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+}
+
+@keyframes caminoPhoneCDraw {
+  0%,
+  20% {
+    stroke-dashoffset: 210;
+  }
+
+  25%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoBigCDraw {
+  0%,
+  19% {
+    opacity: 0;
+    stroke-dashoffset: 330;
+  }
+
+  22% {
+    opacity: 1;
+  }
+
+  28%,
+  100% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoBigCPulse {
+  0%,
+  25% {
+    transform: scale(1);
+  }
+
+  29% {
+    transform: scale(1.035);
+  }
+
+  33%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes caminoBigCRays {
+  0%,
+  24% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+
+  28% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  34% {
+    opacity: 0.6;
+    transform: scale(1.03);
+  }
+
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+@keyframes caminoSubmitTap {
+  0%,
+  24% {
+    transform: scale(1);
+  }
+
+  26% {
+    transform: scale(0.94);
+  }
+
+  28% {
+    transform: scale(1.04);
+  }
+
+  31%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes caminoSubmitCheckDraw {
+  0%,
+  25% {
+    stroke-dashoffset: 70;
+  }
+
+  29%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoSubmitDots {
+  0%,
+  26% {
+    opacity: 0.25;
+    stroke-dashoffset: 40;
+  }
+
+  30% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+
+  36%,
+  100% {
+    opacity: 0.75;
+    stroke-dashoffset: -30;
+  }
+}
+
+@keyframes caminoPaperPlaneButton {
+  0%,
+  26% {
+    transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+
+  30% {
+    transform: translateX(10px) translateY(-8px) rotate(-5deg) scale(1.08);
+    opacity: 1;
+  }
+
+  34%,
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes caminoSendPathDraw {
+  0%,
+  25% {
+    opacity: 0;
+    stroke-dashoffset: 160;
+  }
+
+  28% {
+    opacity: 0.75;
+    stroke-dashoffset: 80;
+  }
+
+  33% {
+    opacity: 0.95;
+    stroke-dashoffset: 0;
+  }
+
+  42%,
+  100% {
+    opacity: 0.45;
+    stroke-dashoffset: -80;
+  }
+}
+
+@keyframes caminoSendPlaneMove {
+  0%,
+  27% {
+    opacity: 0;
+    transform: translate(640px, 565px) rotate(-35deg) scale(0.7);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translate(760px, 455px) rotate(-24deg) scale(0.9);
+  }
+
+  33% {
+    opacity: 1;
+    transform: translate(900px, 397px) rotate(-5deg) scale(1);
+  }
+
+  36% {
+    opacity: 0;
+    transform: translate(985px, 398px) rotate(5deg) scale(0.72);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(985px, 398px) rotate(5deg) scale(0.72);
+  }
+}
+
+@keyframes caminoScene2RoadOut {
+  0%,
+  30% {
+    opacity: 0;
+    stroke-dashoffset: 900;
+  }
+
+  34% {
+    opacity: 0.85;
+    stroke-dashoffset: 520;
+  }
+
+  40% {
+    opacity: 0.75;
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    opacity: 0.45;
+    stroke-dashoffset: 0;
+  }
+}
+
+
+      
 /* ---------- Responsive tuning ---------- */
 
 @media (max-width: 900px) {
@@ -581,14 +1057,20 @@
     transition: none !important;
   }
 
-  .camino-hero__scene--1 {
-    opacity: 1;
-    transform: none;
-  }
+.camino-hero__scene--1 {
+  opacity: 0;
+  transform: none;
+}
 
-  .camino-hero__overlay--scene1 {
-    opacity: 0;
-  }
+.camino-hero__scene--2 {
+  opacity: 1;
+  transform: none;
+}
+
+.camino-hero__overlay--scene1,
+.camino-hero__overlay--scene2 {
+  opacity: 0;
+}
 
   .camino-hero__reduced-label {
     opacity: 1;
@@ -796,6 +1278,152 @@
       <rect class="camino-hero__vignette" x="0" y="0" width="1640" height="920"></rect>
     </g>
 
+<!-- Scene 2 overlay group -->
+<g class="camino-hero__overlay camino-hero__overlay--scene2">
+  <!-- Soft glow behind phone -->
+  <rect
+    class="camino-hero__phone-glow"
+    x="965"
+    y="230"
+    width="430"
+    height="675"
+    rx="54"
+  ></rect>
+
+  <!-- Editable phone UI overlay -->
+  <g class="camino-hero__phone-ui">
+    <!-- Phone screen cover to keep text crisp/editable -->
+    <rect
+      class="camino-hero__phone-screen"
+      x="1026"
+      y="258"
+      width="318"
+      height="610"
+      rx="34"
+    ></rect>
+
+    <!-- Address bar -->
+    <rect
+      class="camino-hero__address-bar"
+      x="1054"
+      y="294"
+      width="264"
+      height="58"
+      rx="18"
+    ></rect>
+
+    <g class="camino-hero__lock-icon">
+      <rect x="1082" y="319" width="16" height="15" rx="3"></rect>
+      <path d="M1086 319 V312 C1086 305 1094 305 1094 312 V319"></path>
+    </g>
+
+    <text class="camino-hero__address-text" x="1112" y="332">
+      caminoslc.com
+    </text>
+
+    <!-- Camino mark on phone -->
+    <path
+      class="camino-hero__phone-c"
+      d="M 1135 386
+         C 1098 384, 1072 412, 1072 450
+         C 1072 489, 1099 516, 1135 514"
+    ></path>
+
+    <text class="camino-hero__phone-logo-text" x="1162" y="465">
+      camino
+    </text>
+
+    <!-- Free consultation text -->
+    <text class="camino-hero__phone-main-text" x="1185" y="552" text-anchor="middle">
+      FREE
+    </text>
+
+    <text class="camino-hero__phone-sub-text" x="1185" y="608" text-anchor="middle">
+      CONSULTATION
+    </text>
+
+    <text class="camino-hero__phone-sub-text" x="1185" y="676" text-anchor="middle">
+      CONSULTA
+    </text>
+
+    <text class="camino-hero__phone-sub-text" x="1185" y="730" text-anchor="middle">
+      GRATIS
+    </text>
+
+    <!-- Submit button -->
+    <g class="camino-hero__submit-button">
+      <rect x="1038" y="772" width="292" height="102" rx="20"></rect>
+
+      <circle
+        class="camino-hero__submit-check-circle"
+        cx="1100"
+        cy="823"
+        r="35"
+      ></circle>
+
+      <path
+        class="camino-hero__submit-check"
+        d="M 1082 823 L1096 837 L1123 804"
+      ></path>
+
+      <path
+        class="camino-hero__submit-dots"
+        d="M 1146 822
+           C 1176 846, 1205 848, 1234 820"
+      ></path>
+
+      <path
+        class="camino-hero__paper-plane"
+        d="M 1239 798 L1290 778 L1269 832 L1255 812 L1239 798 Z"
+      ></path>
+    </g>
+  </g>
+
+  <!-- Large Camino C draw above phone -->
+  <g class="camino-hero__big-c-wrap">
+    <path
+      class="camino-hero__big-c"
+      d="M 1232 82
+         C 1164 55, 1118 92, 1114 150
+         C 1110 210, 1160 250, 1227 226"
+    ></path>
+
+    <g class="camino-hero__big-c-rays">
+      <path d="M 1216 42 L1230 4"></path>
+      <path d="M 1282 72 L1318 42"></path>
+      <path d="M 1310 137 L1352 130"></path>
+      <path d="M 1296 210 L1334 236"></path>
+      <path d="M 1126 72 L1092 42"></path>
+      <path d="M 1098 154 L1058 158"></path>
+    </g>
+  </g>
+
+  <!-- Dotted send path from patient phone toward large phone -->
+  <path
+    class="camino-hero__send-path"
+    d="M 640 565
+       C 720 470, 790 420, 875 398
+       C 915 388, 950 388, 985 398"
+  ></path>
+
+  <!-- Small traveling paper-plane pulse along the send path -->
+  <g class="camino-hero__send-plane">
+    <path d="M 0 -12 L 32 0 L 0 12 L 8 0 Z"></path>
+  </g>
+
+  <!-- Transition road/arc heading toward Scene 3 -->
+  <path
+    class="camino-hero__scene2-transition-road"
+    d="M 1260 820
+       C 1135 770, 1032 716, 940 650
+       C 835 575, 754 516, 640 565"
+  ></path>
+</g>
+
+
+
+
+    
     <!-- Reduced-motion representative text overlay -->
     <g class="camino-hero__reduced-label" aria-hidden="true">
       <rect x="70" y="730" width="650" height="120" rx="24"></rect>
