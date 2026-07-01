@@ -1529,6 +1529,120 @@
     stroke-dashoffset: 0;
   }
 }
+
+
+/* ---------- Scene 2 to Scene 3 seamless road bridge ---------- */
+
+.camino-hero__s2-road-transition {
+  display: none;
+}
+
+.camino-hero__s2-road-bridge {
+  opacity: 0;
+  filter: url(#caminoGlow);
+  pointer-events: none;
+  animation: caminoS2RoadBridgeReveal var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s2-road-bridge-outer,
+.camino-hero__s2-road-bridge-inner {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.camino-hero__s2-road-bridge-outer {
+  stroke: rgba(170, 220, 255, 0.78);
+  stroke-width: 62;
+  stroke-dasharray: 2200;
+  stroke-dashoffset: 2200;
+}
+
+.camino-hero__s2-road-bridge-inner {
+  stroke: rgba(255, 255, 255, 0.96);
+  stroke-width: 16;
+  stroke-dasharray: 2200;
+  stroke-dashoffset: 2200;
+}
+
+.camino-hero__s2-road-bridge-main {
+  animation: caminoS2RoadBridgeMainDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s2-road-bridge-left,
+.camino-hero__s2-road-bridge-right {
+  animation: caminoS2RoadBridgeBranchesDraw var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS2RoadBridgeReveal {
+  0%,
+  37% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.3;
+  }
+
+  43% {
+    opacity: 0.95;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  55% {
+    opacity: 0.75;
+  }
+
+  60%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeMainDraw {
+  0%,
+  38% {
+    stroke-dashoffset: 2200;
+  }
+
+  43% {
+    stroke-dashoffset: 900;
+  }
+
+  48% {
+    stroke-dashoffset: 0;
+  }
+
+  60%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeBranchesDraw {
+  0%,
+  43% {
+    stroke-dashoffset: 2200;
+  }
+
+  48% {
+    stroke-dashoffset: 900;
+  }
+
+  54% {
+    stroke-dashoffset: 0;
+  }
+
+  60%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+      
       
 /* ---------- Responsive tuning ---------- */
 
@@ -1843,19 +1957,51 @@
     </animateMotion>
   </g>
 
-<g class="camino-hero__s2-road-transition">
+<!-- Scene 2 to Scene 3 full-width road bridge -->
+<g class="camino-hero__s2-road-bridge">
+  <!-- Main road sweeps in from lower right and lands at Scene 3's center split -->
   <path
-    class="camino-hero__s2-road-transition-outer"
-    d="M 1650 940
-       C 1480 860, 1320 780, 1160 690
-       C 1000 600, 860 520, 730 435"
+    class="camino-hero__s2-road-bridge-main camino-hero__s2-road-bridge-outer"
+    d="M 1700 960
+       C 1480 875, 1265 770, 1040 705
+       C 940 676, 865 662, 805 656"
   ></path>
 
   <path
-    class="camino-hero__s2-road-transition-inner"
-    d="M 1650 940
-       C 1480 860, 1320 780, 1160 690
-       C 1000 600, 860 520, 730 435"
+    class="camino-hero__s2-road-bridge-main camino-hero__s2-road-bridge-inner"
+    d="M 1700 960
+       C 1480 875, 1265 770, 1040 705
+       C 940 676, 865 662, 805 656"
+  ></path>
+
+  <!-- Left branch aligns with the medical side road in Scene 3 -->
+  <path
+    class="camino-hero__s2-road-bridge-left camino-hero__s2-road-bridge-outer"
+    d="M 805 656
+       C 680 570, 540 535, 380 552
+       C 220 568, 90 635, -90 760"
+  ></path>
+
+  <path
+    class="camino-hero__s2-road-bridge-left camino-hero__s2-road-bridge-inner"
+    d="M 805 656
+       C 680 570, 540 535, 380 552
+       C 220 568, 90 635, -90 760"
+  ></path>
+
+  <!-- Right branch aligns with the attorney side road in Scene 3 -->
+  <path
+    class="camino-hero__s2-road-bridge-right camino-hero__s2-road-bridge-outer"
+    d="M 805 656
+       C 935 575, 1068 545, 1215 568
+       C 1385 595, 1540 685, 1730 810"
+  ></path>
+
+  <path
+    class="camino-hero__s2-road-bridge-right camino-hero__s2-road-bridge-inner"
+    d="M 805 656
+       C 935 575, 1068 545, 1215 568
+       C 1385 595, 1540 685, 1730 810"
   ></path>
 </g>
   
