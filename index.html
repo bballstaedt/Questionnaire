@@ -3292,6 +3292,402 @@
   }
 }
 
+
+
+/* ---------- Scene 4: Care and counsel + final Scene 3 alignment ---------- */
+
+/* Scene 3 exits after its connection moment so Scene 4 can enter. */
+@keyframes caminoScene3Visibility {
+  0%,
+  49% {
+    opacity: 0;
+  }
+
+  54%,
+  70% {
+    opacity: 1;
+  }
+
+  76%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene3Push {
+  0%,
+  49% {
+    transform: scale(1.035) translateY(4px);
+  }
+
+  56% {
+    transform: scale(1.01) translateY(0px);
+  }
+
+  70% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+
+  76%,
+  100% {
+    transform: scale(1.024) translateX(-8px) translateY(-4px);
+  }
+}
+
+/* Scene 3 bubble ring alignment based on the approved storyboard bubble centers. */
+.camino-hero__s3-bubble--left {
+  transform-origin: 185px 678px;
+}
+
+.camino-hero__s3-bubble--right {
+  transform-origin: 1396px 683px;
+}
+
+/* Scene 4 background layer */
+.camino-hero__scene--4 {
+  opacity: 0;
+  transform-origin: center center;
+  animation:
+    caminoScene4Visibility var(--camino-loop) linear infinite,
+    caminoScene4Push var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__overlay--scene4 {
+  opacity: 0;
+  pointer-events: none;
+  animation: caminoScene4Visibility var(--camino-loop) linear infinite;
+}
+
+@keyframes caminoScene4Visibility {
+  0%,
+  70% {
+    opacity: 0;
+  }
+
+  76% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes caminoScene4Push {
+  0%,
+  70% {
+    transform: scale(1.035) translateX(8px) translateY(2px);
+  }
+
+  78% {
+    transform: scale(1.012) translateX(0px) translateY(0px);
+  }
+
+  100% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+}
+
+/* Scene 4 care/counsel overlays */
+.camino-hero__s4-care-glow {
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS4CareGlow var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4-care-glow--patient {
+  fill: rgba(255, 255, 255, 0.13);
+}
+
+.camino-hero__s4-care-glow--team {
+  fill: rgba(120, 202, 255, 0.10);
+}
+
+@keyframes caminoS4CareGlow {
+  0%,
+  74% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 0.75;
+  }
+
+  92% {
+    opacity: 0.32;
+  }
+
+  100% {
+    opacity: 0.22;
+  }
+}
+
+.camino-hero__s4-dizzy {
+  opacity: 0;
+  transform-origin: 700px 320px;
+  animation: caminoS4DizzyIn var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4-dizzy-arc {
+  fill: none;
+  stroke: rgba(39, 84, 145, 0.42);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 8 16;
+}
+
+.camino-hero__s4-star path {
+  fill: rgba(255, 204, 92, 0.95);
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s4-star--1 {
+  animation: caminoS4Star1 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4-star--2 {
+  animation: caminoS4Star2 var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS4DizzyIn {
+  0%,
+  75% {
+    opacity: 0;
+    transform: rotate(-4deg);
+  }
+
+  80% {
+    opacity: 0.75;
+    transform: rotate(2deg);
+  }
+
+  90% {
+    opacity: 0.5;
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    opacity: 0.35;
+    transform: rotate(1deg);
+  }
+}
+
+@keyframes caminoS4Star1 {
+  0%,
+  76% {
+    opacity: 0;
+    transform: translate(615px, 282px) scale(0.65) rotate(0deg);
+  }
+
+  82% {
+    opacity: 1;
+    transform: translate(615px, 282px) scale(1) rotate(16deg);
+  }
+
+  94%,
+  100% {
+    opacity: 0.25;
+    transform: translate(605px, 274px) scale(0.75) rotate(36deg);
+  }
+}
+
+@keyframes caminoS4Star2 {
+  0%,
+  78% {
+    opacity: 0;
+    transform: translate(782px, 300px) scale(0.65) rotate(0deg);
+  }
+
+  84% {
+    opacity: 0.9;
+    transform: translate(782px, 300px) scale(1) rotate(-16deg);
+  }
+
+  96%,
+  100% {
+    opacity: 0.2;
+    transform: translate(792px, 292px) scale(0.75) rotate(-36deg);
+  }
+}
+
+.camino-hero__s4-support-pulse,
+.camino-hero__s4-therapy-pulse {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.88);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS4PulseAccent var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4-therapy-pulse {
+  stroke: rgba(130, 220, 255, 0.82);
+  animation-delay: 0.18s;
+}
+
+@keyframes caminoS4PulseAccent {
+  0%,
+  76% {
+    opacity: 0;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+  }
+
+  82% {
+    opacity: 0.9;
+    stroke-dashoffset: 80;
+  }
+
+  90% {
+    opacity: 0.28;
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+.camino-hero__s4-writing path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.92);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS4WritingDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4-writing path:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+@keyframes caminoS4WritingDraw {
+  0%,
+  78% {
+    opacity: 0;
+    stroke-dashoffset: 160;
+  }
+
+  84% {
+    opacity: 0.95;
+    stroke-dashoffset: 70;
+  }
+
+  91% {
+    opacity: 0.45;
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+.camino-hero__s4-sparkle {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center center;
+}
+
+.camino-hero__s4-sparkle path {
+  fill: #ffffff;
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s4-sparkle--1 {
+  animation: caminoS4Sparkle1 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4-sparkle--2 {
+  animation: caminoS4Sparkle2 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4-sparkle--3 {
+  animation: caminoS4Sparkle3 var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS4Sparkle1 {
+  0%,
+  82% {
+    opacity: 0;
+    transform: translate(520px, 520px) scale(0.65) rotate(0deg);
+  }
+
+  86% {
+    opacity: 1;
+    transform: translate(520px, 520px) scale(1) rotate(18deg);
+  }
+
+  94%,
+  100% {
+    opacity: 0;
+    transform: translate(500px, 505px) scale(0.7) rotate(42deg);
+  }
+}
+
+@keyframes caminoS4Sparkle2 {
+  0%,
+  84% {
+    opacity: 0;
+    transform: translate(970px, 438px) scale(0.65) rotate(0deg);
+  }
+
+  88% {
+    opacity: 0.95;
+    transform: translate(970px, 438px) scale(1) rotate(-18deg);
+  }
+
+  96%,
+  100% {
+    opacity: 0;
+    transform: translate(1000px, 420px) scale(0.7) rotate(-42deg);
+  }
+}
+
+@keyframes caminoS4Sparkle3 {
+  0%,
+  86% {
+    opacity: 0;
+    transform: translate(1180px, 650px) scale(0.65) rotate(0deg);
+  }
+
+  90% {
+    opacity: 0.9;
+    transform: translate(1180px, 650px) scale(1) rotate(18deg);
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+    transform: translate(1212px, 634px) scale(0.7) rotate(42deg);
+  }
+}
+
+/* Reduced-motion fallback now shows the newest built scene. */
+@media (prefers-reduced-motion: reduce) {
+  .camino-hero__scene--2,
+  .camino-hero__scene--3 {
+    opacity: 0;
+  }
+
+  .camino-hero__scene--4 {
+    opacity: 1;
+    transform: none;
+  }
+
+  .camino-hero__overlay--scene4 {
+    opacity: 0;
+  }
+}
+
 /* ---------- Responsive tuning ---------- */
 
 @media (max-width: 900px) {
@@ -3719,13 +4115,13 @@
 
   <!-- Bubble pop accents only. The storyboard image already contains the text. -->
   <g class="camino-hero__s3-bubble camino-hero__s3-bubble--left">
-    <circle cx="205" cy="688" r="104"></circle>
-    <circle class="camino-hero__s3-bubble-ring" cx="205" cy="688" r="122"></circle>
+    <circle cx="185" cy="678" r="106"></circle>
+    <circle class="camino-hero__s3-bubble-ring" cx="185" cy="678" r="124"></circle>
   </g>
 
   <g class="camino-hero__s3-bubble camino-hero__s3-bubble--right">
-    <circle cx="1415" cy="684" r="104"></circle>
-    <circle class="camino-hero__s3-bubble-ring" cx="1415" cy="684" r="122"></circle>
+    <circle cx="1396" cy="683" r="106"></circle>
+    <circle class="camino-hero__s3-bubble-ring" cx="1396" cy="683" r="124"></circle>
   </g>
 
   <!-- Camino C pulse above the connecting road -->
@@ -3762,6 +4158,85 @@
     </g>
 
     <g class="camino-hero__s3-sparkle camino-hero__s3-sparkle--4">
+      <path d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z"></path>
+    </g>
+  </g>
+
+</g>
+
+
+
+<!-- Scene 4 overlay group -->
+<g class="camino-hero__overlay camino-hero__overlay--scene4">
+
+  <!-- Soft clinic-care glow around the patient and helpers -->
+  <ellipse
+    class="camino-hero__s4-care-glow camino-hero__s4-care-glow--patient"
+    cx="710"
+    cy="505"
+    rx="210"
+    ry="260"
+  ></ellipse>
+
+  <ellipse
+    class="camino-hero__s4-care-glow camino-hero__s4-care-glow--team"
+    cx="1035"
+    cy="520"
+    rx="360"
+    ry="290"
+  ></ellipse>
+
+  <!-- Mild dizziness/still-recovering effect near the patient's head -->
+  <g class="camino-hero__s4-dizzy">
+    <path
+      class="camino-hero__s4-dizzy-arc camino-hero__s4-dizzy-arc--top"
+      d="M 612 300 C 660 260, 730 258, 782 298"
+    ></path>
+    <path
+      class="camino-hero__s4-dizzy-arc camino-hero__s4-dizzy-arc--bottom"
+      d="M 630 346 C 675 374, 735 372, 778 340"
+    ></path>
+
+    <g class="camino-hero__s4-star camino-hero__s4-star--1">
+      <path d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z"></path>
+    </g>
+
+    <g class="camino-hero__s4-star camino-hero__s4-star--2">
+      <path d="M0,-9 L3,-3 L9,0 L3,3 L0,9 L-3,3 L-9,0 L-3,-3 Z"></path>
+    </g>
+  </g>
+
+  <!-- Supportive touch highlight at the nurse's hand/patient shoulder -->
+  <path
+    class="camino-hero__s4-support-pulse"
+    d="M 465 470
+       C 500 448, 535 448, 565 470
+       C 535 492, 500 492, 465 470"
+  ></path>
+
+  <!-- Gentle therapy-band/clipboard focus accent near the physical therapist -->
+  <path
+    class="camino-hero__s4-therapy-pulse"
+    d="M 855 580
+       C 882 555, 910 555, 940 582
+       C 908 604, 880 604, 855 580"
+  ></path>
+
+  <!-- Attorney writing animation on the notebook/folder -->
+  <g class="camino-hero__s4-writing">
+    <path d="M 1040 664 C 1080 648, 1120 650, 1160 668"></path>
+    <path d="M 1064 704 C 1105 692, 1144 696, 1186 712"></path>
+  </g>
+
+  <!-- Small care/progress sparkles -->
+  <g class="camino-hero__s4-sparkles">
+    <g class="camino-hero__s4-sparkle camino-hero__s4-sparkle--1">
+      <path d="M0,-11 L3,-3 L11,0 L3,3 L0,11 L-3,3 L-11,0 L-3,-3 Z"></path>
+    </g>
+    <g class="camino-hero__s4-sparkle camino-hero__s4-sparkle--2">
+      <path d="M0,-9 L3,-3 L9,0 L3,3 L0,9 L-3,3 L-9,0 L-3,-3 Z"></path>
+    </g>
+    <g class="camino-hero__s4-sparkle camino-hero__s4-sparkle--3">
       <path d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z"></path>
     </g>
   </g>
