@@ -198,18 +198,6 @@
   transform: translate(1360px, 258px);
   animation: caminoStarPulse3 var(--camino-loop) ease-in-out infinite;
 }
-
-.camino-hero__pain-lines path {
-  fill: none;
-  stroke: var(--camino-orange-soft);
-  stroke-width: 7;
-  stroke-linecap: round;
-}
-
-.camino-hero__pain-lines {
-  animation: caminoPainPulse var(--camino-loop) ease-in-out infinite;
-}
-
 .camino-hero__road-glow {
   opacity: 0;
   animation: caminoRoadReveal var(--camino-loop) ease-in-out infinite;
@@ -236,19 +224,11 @@
   stroke-dashoffset: 1800;
   animation: caminoRoadMaskDraw var(--camino-loop) ease-in-out infinite;
 }
-
-.camino-hero__vignette {
-  fill: url(#none);
-  pointer-events: none;
-  opacity: 1;
-  fill: transparent;
-  box-shadow: none;
-}
-
 .camino-hero__vignette {
   fill: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  opacity: 1;
 }
-
 .camino-hero__overlay--scene1::before {
   content: "";
 }
@@ -308,39 +288,6 @@
   }
   100% {
     transform: scale(1.04) translateX(-24px) translateY(-10px);
-  }
-}
-
-
-@keyframes caminoPainPulse {
-  0%,
-  4% {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-  7% {
-    opacity: 0.85;
-    transform: scale(1);
-  }
-  10% {
-    opacity: 1;
-    transform: scale(1.06);
-  }
-  13% {
-    opacity: 0.75;
-    transform: scale(0.97);
-  }
-  16% {
-    opacity: 1;
-    transform: scale(1.04);
-  }
-  19% {
-    opacity: 0;
-    transform: scale(1.1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.1);
   }
 }
 
@@ -420,7 +367,7 @@
 .camino-hero__s2-send-plane path {
   fill: #ffffff;
   stroke: #123f8b;
-  stroke-width: 3;
+  stroke-width: 2.5;
   stroke-linejoin: round;
 }
 
@@ -470,16 +417,16 @@
 
 .camino-hero__s2-road-bridge-outer {
   stroke: rgba(170, 220, 255, 0.78);
-  stroke-width: 62;
-  stroke-dasharray: 2200;
-  stroke-dashoffset: 2200;
+  stroke-width: 46;
+  stroke-dasharray: 1900;
+  stroke-dashoffset: 1900;
 }
 
 .camino-hero__s2-road-bridge-inner {
   stroke: rgba(255, 255, 255, 0.96);
-  stroke-width: 16;
-  stroke-dasharray: 2200;
-  stroke-dashoffset: 2200;
+  stroke-width: 11;
+  stroke-dasharray: 1900;
+  stroke-dashoffset: 1900;
 }
 
 .camino-hero__s2-road-bridge-main {
@@ -550,80 +497,10 @@
   }
 }
 
-
-/* Scene 3 consultation bubbles */
-.camino-hero__s3-bubble {
-  opacity: 0;
-  transform-box: fill-box;
-  transform-origin: center center;
-  animation: caminoS3BubblePop var(--camino-loop) cubic-bezier(.2, .9, .25, 1.15) infinite;
-}
-
-.camino-hero__s3-bubble circle:first-of-type {
-  fill: rgba(255, 255, 255, 0.07);
-  stroke: rgba(255, 255, 255, 0.72);
-  stroke-width: 3;
-}
-
-.camino-hero__s3-bubble-ring {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.55);
-  stroke-width: 3;
-  stroke-dasharray: 8 10;
-}
-
-.camino-hero__s3-bubble text {
-  fill: rgba(255, 255, 255, 0.95);
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
-  font-size: 30px;
-  letter-spacing: 0.5px;
-}
-
-.camino-hero__s3-bubble--left circle:first-of-type {
-  fill: rgba(23, 132, 93, 0.28);
-}
-
-.camino-hero__s3-bubble--right circle:first-of-type {
-  fill: rgba(18, 63, 139, 0.28);
-}
-
-.camino-hero__s3-bubble--right {
-  animation-delay: 0.12s;
-}
-
-@keyframes caminoS3BubblePop {
-  0%,
-  39% {
-    opacity: 0;
-    transform: scale(0.75);
-  }
-
-  43% {
-    opacity: 1;
-    transform: scale(1.08);
-  }
-
-  47% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  58% {
-    opacity: 0.78;
-    transform: scale(1.015);
-  }
-
-  100% {
-    opacity: 0.62;
-    transform: scale(1);
-  }
-}
-
 /* Scene 3 C icon */
 .camino-hero__s3-c-wrap {
   opacity: 0;
-  transform-origin: 820px 125px;
+  transform-origin: 735px 125px;
   animation: caminoS3CPulse var(--camino-loop) ease-in-out infinite;
 }
 
@@ -685,52 +562,7 @@
 
 
 /* Retimed Scene 2 road bridge so it lands directly into Scene 3 */
-
-
-/* Move the animated Scene 3 C left and remove its halo */
-.camino-hero__s3-c-wrap {
-  opacity: 0;
-  transform-origin: 735px 125px;
-  animation: caminoS3CPulse var(--camino-loop) ease-in-out infinite;
-}
-
 /* Road split animates in, then fades away */
-
-
-/* Bubble accents only: no duplicate text, pop briefly, then fade */
-.camino-hero__s3-bubble {
-  opacity: 0;
-  transform-box: fill-box;
-  transform-origin: center center;
-  animation: caminoS3BubblePopClean var(--camino-loop) cubic-bezier(.2, .9, .25, 1.15) infinite;
-}
-
-.camino-hero__s3-bubble circle:first-of-type {
-  stroke: rgba(255, 255, 255, 0.82);
-  stroke-width: 3;
-}
-
-.camino-hero__s3-bubble-ring {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.62);
-  stroke-width: 3;
-  stroke-dasharray: 8 10;
-}
-
-.camino-hero__s3-bubble--left circle:first-of-type {
-  fill: rgba(23, 132, 93, 0.22);
-}
-
-.camino-hero__s3-bubble--right circle:first-of-type {
-  fill: rgba(18, 63, 139, 0.22);
-}
-
-.camino-hero__s3-bubble--right {
-  animation-delay: 0.12s;
-}
-
-
-/* Keep the C visible after drawing, since the static C has been removed from the Scene 3 background */
 
 
 /* ---------- Scene 1, Scene 2, and Scene 3 timing adjustments ---------- */
@@ -953,34 +785,7 @@
 
 
 /* Scene 3: keep the temporary bubble rings aligned and brief after the later entrance. */
-@keyframes caminoS3BubblePopClean {
-  0%,
-  53% {
-    opacity: 0;
-    transform: scale(0.75);
-  }
 
-  56% {
-    opacity: 1;
-    transform: scale(1.08);
-  }
-
-  58% {
-    opacity: 0.95;
-    transform: scale(1);
-  }
-
-  63% {
-    opacity: 0.35;
-    transform: scale(1.03);
-  }
-
-  66%,
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
 
 /* Scene 3: retime C draw/pulse to the later entrance. */
 
@@ -997,6 +802,7 @@
 
 .camino-hero__s3-bubble--right {
   transform-origin: 1396px 683px;
+  animation-delay: 0.12s;
 }
 
 /* Scene 4 background layer */
@@ -1295,12 +1101,6 @@
 .camino-hero__s3-bubble--right circle:first-of-type {
   fill: rgba(18, 63, 139, 0.14);
 }
-
-.camino-hero__s3-bubble--right {
-  animation-delay: 0.12s;
-}
-
-
 /* Scene 3 now exits after its connection moment so Scene 4 and Scene 5 can enter. */
 
 
@@ -1503,31 +1303,6 @@
   pointer-events: none;
   animation: caminoS5ToS6Visibility var(--camino-loop) ease-in-out infinite;
 }
-
-.camino-hero__s5to6-road {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  filter: url(#caminoGlow);
-}
-
-.camino-hero__s5to6-road--outer {
-  stroke: rgba(255, 218, 120, 0.74);
-  stroke-width: 58;
-  stroke-dasharray: 2100;
-  stroke-dashoffset: 2100;
-  animation: caminoS5ToS6RoadOuter var(--camino-loop) ease-in-out infinite;
-}
-
-.camino-hero__s5to6-road--inner {
-  stroke: rgba(255, 255, 255, 0.95);
-  stroke-width: 15;
-  stroke-dasharray: 2100;
-  stroke-dashoffset: 2100;
-  animation: caminoS5ToS6RoadInner var(--camino-loop) ease-in-out infinite;
-}
-
-
 .camino-hero__s5to6-sparkle {
   opacity: 0;
   transform-box: fill-box;
@@ -1571,9 +1346,7 @@
 }
 
 .camino-hero__s6-logo-wrap {
-  transform-origin: 1200px 150px;
-  animation: caminoS6LogoIn var(--camino-loop) ease-in-out infinite;
-}
+  transform-origin: 1200px 150px;}
 
 .camino-hero__s6-logo-c {
   fill: none;
@@ -1603,24 +1376,6 @@
   letter-spacing: 9px;
 }
 
-@keyframes caminoS6LogoIn {
-  0%,
-  93% {
-    opacity: 0;
-    transform: translateY(12px) scale(0.97);
-  }
-
-  96%,
-  100% {
-    opacity: 1;
-    transform: translateY(0px) scale(1);
-  }
-}
-
-
-.camino-hero__s6-tagline {
-  animation: caminoS6TaglineIn var(--camino-loop) ease-in-out infinite;
-}
 
 .camino-hero__s6-tagline-main,
 .camino-hero__s6-tagline-es {
@@ -1638,25 +1393,9 @@
   font-weight: 800;
 }
 
-@keyframes caminoS6TaglineIn {
-  0%,
-  94% {
-    opacity: 0;
-    transform: translateX(24px);
-  }
-
-  97%,
-  100% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
-
 
 .camino-hero__s6-road-wrap {
-  filter: url(#caminoGlow);
-  animation: caminoS6RoadVisibility var(--camino-loop) ease-in-out infinite;
-}
+  filter: url(#caminoGlow);}
 
 .camino-hero__s6-road {
   fill: none;
@@ -1680,20 +1419,6 @@
   animation: caminoS6RoadDrawInner var(--camino-loop) ease-in-out infinite;
 }
 
-@keyframes caminoS6RoadVisibility {
-  0%,
-  92% {
-    opacity: 0;
-  }
-
-  95% {
-    opacity: 0.9;
-  }
-
-  100% {
-    opacity: 0.7;
-  }
-}
 
 @keyframes caminoS6RoadDrawOuter {
   0%,
@@ -2092,38 +1817,6 @@
 /* Scene 5-to-6 roads now follow the same road curve used in Scene 6. */
 
 
-@keyframes caminoS5ToS6RoadOuter {
-  0%,
-  75% {
-    stroke-dashoffset: 2100;
-  }
-
-  81% {
-    stroke-dashoffset: 700;
-  }
-
-  86%,
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes caminoS5ToS6RoadInner {
-  0%,
-  75% {
-    stroke-dashoffset: 2100;
-  }
-
-  81% {
-    stroke-dashoffset: 780;
-  }
-
-  86%,
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
 .camino-hero__s6-logo-wrap {
   transform-origin: 1200px 150px;
   animation: caminoS6LogoInHold var(--camino-loop) ease-in-out infinite;
@@ -2204,7 +1897,7 @@
 @keyframes caminoScene4Push {
   0%,
   52% {
-    transform: scale(1.012) translateX(0px) translateY(0px);
+    transform: scale(1.01) translateX(0px) translateY(0px);
   }
 
   58% {
@@ -2212,12 +1905,12 @@
   }
 
   72% {
-    transform: scale(1.065) translateX(0px) translateY(0px);
+    transform: scale(1.06) translateX(0px) translateY(0px);
   }
 
   78%,
   100% {
-    transform: scale(1.09) translateX(0px) translateY(0px);
+    transform: scale(1.085) translateX(0px) translateY(0px);
   }
 }
 
@@ -2229,22 +1922,22 @@
     stroke-dashoffset: 230;
   }
 
-  23% {
+  22.5% {
     opacity: 0.9;
     stroke-dashoffset: 170;
   }
 
-  29% {
+  26.5% {
     opacity: 1;
     stroke-dashoffset: 60;
   }
 
-  35% {
+  30.8% {
     opacity: 0.75;
     stroke-dashoffset: -80;
   }
 
-  38%,
+  33%,
   100% {
     opacity: 0;
     stroke-dashoffset: -150;
@@ -2261,11 +1954,11 @@
     opacity: 1;
   }
 
-  35% {
+  30.8% {
     opacity: 1;
   }
 
-  38%,
+  33%,
   100% {
     opacity: 0;
   }
@@ -2473,15 +2166,6 @@
     transform: scale(1.02) translateX(-6px) translateY(-3px);
   }
 }
-
-/* Remove the road strokes from the Scene 5-to-6 transition. Keep the soft sparkle handoff. */
-.camino-hero__s5to6-road,
-.camino-hero__s5to6-road--outer,
-.camino-hero__s5to6-road--inner {
-  display: none !important;
-}
-
-
 @keyframes caminoS5ToS6Sparkle1 {
   0%,
   82% {
@@ -2870,22 +2554,6 @@
     transform: translate(1313px, 202px) scale(1.4) rotate(48deg);
   }
 }
-
-/* Scene 2 to Scene 3: three separate road sweeps now move from the distant roads toward the viewer. */
-.camino-hero__s2-road-bridge-outer {
-  stroke: rgba(170, 220, 255, 0.78);
-  stroke-width: 46;
-  stroke-dasharray: 1900;
-  stroke-dashoffset: 1900;
-}
-
-.camino-hero__s2-road-bridge-inner {
-  stroke: rgba(255, 255, 255, 0.96);
-  stroke-width: 11;
-  stroke-dasharray: 1900;
-  stroke-dashoffset: 1900;
-}
-
 @keyframes caminoS2RoadBridgeReveal {
   0%,
   31% {
@@ -3444,13 +3112,13 @@
 
   <!-- Traveling paper plane, physically attached to the path above -->
   <g class="camino-hero__s2-send-plane">
-    <path d="M 0 -39 L 114 0 L 0 39 L 27 0 Z"></path>
+    <path d="M 0 -19.5 L 57 0 L 0 19.5 L 13.5 0 Z"></path>
 
     <animateMotion
       dur="28s"
       repeatCount="indefinite"
       rotate="auto"
-      keyTimes="0;0.205;0.345;1"
+      keyTimes="0;0.225;0.308;1"
       keyPoints="0;0;1;1"
       calcMode="linear"
     >
@@ -3583,24 +3251,6 @@
 
 <!-- Scene 4 overlay group -->
 <g class="camino-hero__overlay camino-hero__overlay--scene4">
-
-  <!-- Soft clinic-care glow around the patient and helpers -->
-  <ellipse
-    class="camino-hero__s4-care-glow camino-hero__s4-care-glow--patient"
-    cx="710"
-    cy="505"
-    rx="210"
-    ry="260"
-  ></ellipse>
-
-  <ellipse
-    class="camino-hero__s4-care-glow camino-hero__s4-care-glow--team"
-    cx="1035"
-    cy="520"
-    rx="360"
-    ry="290"
-  ></ellipse>
-
   <!-- Mild dizziness/still-recovering effect near the patient's head -->
   <g class="camino-hero__s4-dizzy">
     <path
