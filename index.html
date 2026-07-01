@@ -2388,6 +2388,198 @@
 }
 
 
+
+
+/* ---------- Final user-requested timing and cleanup adjustments ---------- */
+
+/* Scene 1 pain marks: keep them fixed near the elbow/back instead of scaling/drifting. */
+.camino-hero__pain-lines {
+  animation: none !important;
+  transform: none !important;
+  opacity: 1;
+}
+
+.camino-hero__pain-lines path {
+  fill: none;
+  stroke: var(--camino-orange-soft);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  opacity: 0;
+  animation: caminoPainLineFixedPulse var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__pain-line--2 {
+  animation-delay: 0.08s;
+}
+
+.camino-hero__pain-line--3 {
+  animation-delay: 0.16s;
+}
+
+@keyframes caminoPainLineFixedPulse {
+  0%,
+  4% {
+    opacity: 0;
+    stroke-dashoffset: 60;
+    stroke-width: 6;
+  }
+
+  7% {
+    opacity: 0.9;
+    stroke-dashoffset: 18;
+    stroke-width: 7;
+  }
+
+  10% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+    stroke-width: 8;
+  }
+
+  14% {
+    opacity: 0.55;
+    stroke-dashoffset: 0;
+    stroke-width: 6;
+  }
+
+  17% {
+    opacity: 0.95;
+    stroke-dashoffset: 0;
+    stroke-width: 8;
+  }
+
+  20%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+    stroke-width: 6;
+  }
+}
+
+/* Scene 2 send animation now starts near the beginning of Scene 2 with the C animation. */
+@keyframes caminoS2SendPath {
+  0%,
+  19.5% {
+    opacity: 0;
+    stroke-dashoffset: 230;
+  }
+
+  21% {
+    opacity: 0.9;
+    stroke-dashoffset: 170;
+  }
+
+  27% {
+    opacity: 1;
+    stroke-dashoffset: 60;
+  }
+
+  34% {
+    opacity: 0.75;
+    stroke-dashoffset: -80;
+  }
+
+  37%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: -150;
+  }
+}
+
+@keyframes caminoS2SendPlaneOpacity {
+  0%,
+  19.8% {
+    opacity: 0;
+  }
+
+  20.5% {
+    opacity: 1;
+  }
+
+  33.5% {
+    opacity: 1;
+  }
+
+  35%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Remove the center white oval over the patient in Scene 3. */
+.camino-hero__s3-patient-glow {
+  display: none !important;
+}
+
+/* The Scene 2 road bridge is the single road-split transition; hide the duplicate Scene 3 road redraw. */
+.camino-hero__s3-road-split,
+.camino-hero__s3-road {
+  display: none !important;
+}
+
+/* Keep the Scene 2-to-Scene 3 road bridge as the one split animation. */
+@keyframes caminoS2RoadBridgeReveal {
+  0%,
+  30% {
+    opacity: 0;
+  }
+
+  32% {
+    opacity: 0.3;
+  }
+
+  35% {
+    opacity: 0.95;
+  }
+
+  38% {
+    opacity: 1;
+  }
+
+  41% {
+    opacity: 0.45;
+  }
+
+  44%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeMainDraw {
+  0%,
+  30% {
+    stroke-dashoffset: 2200;
+  }
+
+  35% {
+    stroke-dashoffset: 900;
+  }
+
+  39%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeBranchesDraw {
+  0%,
+  34% {
+    stroke-dashoffset: 2200;
+  }
+
+  38% {
+    stroke-dashoffset: 900;
+  }
+
+  42%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
 /* ---------- Responsive tuning ---------- */
 
 @media (max-width: 900px) {
@@ -2611,9 +2803,9 @@
 
       <!-- Arm pain pulse -->
 <g class="camino-hero__pain-lines">
-  <path class="camino-hero__pain-line camino-hero__pain-line--1" d="M 1195 510 Q 1212 500 1228 490"></path>
-  <path class="camino-hero__pain-line camino-hero__pain-line--2" d="M 1200 535 Q 1224 532 1244 528"></path>
-  <path class="camino-hero__pain-line camino-hero__pain-line--3" d="M 1193 560 Q 1215 570 1232 585"></path>
+  <path class="camino-hero__pain-line camino-hero__pain-line--1" d="M 1220 520 Q 1244 508 1264 498"></path>
+  <path class="camino-hero__pain-line camino-hero__pain-line--2" d="M 1226 546 Q 1256 545 1280 542"></path>
+  <path class="camino-hero__pain-line camino-hero__pain-line--3" d="M 1218 572 Q 1244 586 1264 602"></path>
 </g>
 
       <!-- Camera/push emphasis: road sweep / loop-entry motif -->
@@ -2693,7 +2885,7 @@
       dur="20s"
       repeatCount="indefinite"
       rotate="auto"
-      keyTimes="0;0.29;0.46;1"
+      keyTimes="0;0.205;0.345;1"
       keyPoints="0;0;1;1"
       calcMode="linear"
     >
