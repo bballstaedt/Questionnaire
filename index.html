@@ -4258,6 +4258,596 @@
 }
 
 
+
+
+/* ---------- Scene 5 to Scene 6 transition and final brand screen ---------- */
+
+/* Scene 5 now hands off to Scene 6 instead of holding to the end. */
+@keyframes caminoScene5Visibility {
+  0%,
+  86% {
+    opacity: 0;
+  }
+
+  89%,
+  94% {
+    opacity: 1;
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene5Push {
+  0%,
+  86% {
+    transform: scale(1.035) translateX(8px) translateY(2px);
+  }
+
+  90% {
+    transform: scale(1.012) translateX(0px) translateY(0px);
+  }
+
+  95%,
+  100% {
+    transform: scale(1.02) translateX(-6px) translateY(-3px);
+  }
+}
+
+/* Scene 5 to Scene 6 transition sweep */
+.camino-hero__overlay--scene5to6 {
+  opacity: 0;
+  pointer-events: none;
+  animation: caminoS5ToS6Visibility var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s5to6-road {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s5to6-road--outer {
+  stroke: rgba(255, 218, 120, 0.74);
+  stroke-width: 58;
+  stroke-dasharray: 2100;
+  stroke-dashoffset: 2100;
+  animation: caminoS5ToS6RoadOuter var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s5to6-road--inner {
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 15;
+  stroke-dasharray: 2100;
+  stroke-dashoffset: 2100;
+  animation: caminoS5ToS6RoadInner var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS5ToS6Visibility {
+  0%,
+  90% {
+    opacity: 0;
+  }
+
+  92% {
+    opacity: 0.38;
+  }
+
+  95% {
+    opacity: 0.95;
+  }
+
+  98% {
+    opacity: 0.42;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS5ToS6RoadOuter {
+  0%,
+  90% {
+    stroke-dashoffset: 2100;
+  }
+
+  95% {
+    stroke-dashoffset: 700;
+  }
+
+  99%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS5ToS6RoadInner {
+  0%,
+  90% {
+    stroke-dashoffset: 2100;
+  }
+
+  95% {
+    stroke-dashoffset: 780;
+  }
+
+  99%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.camino-hero__s5to6-sparkle {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center center;
+}
+
+.camino-hero__s5to6-sparkle path {
+  fill: rgba(255, 229, 140, 0.98);
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s5to6-sparkle--1 {
+  animation: caminoS5ToS6Sparkle1 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s5to6-sparkle--2 {
+  animation: caminoS5ToS6Sparkle2 var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS5ToS6Sparkle1 {
+  0%,
+  91% {
+    opacity: 0;
+    transform: translate(780px, 555px) scale(0.65) rotate(0deg);
+  }
+
+  94% {
+    opacity: 1;
+    transform: translate(900px, 610px) scale(1) rotate(22deg);
+  }
+
+  99%,
+  100% {
+    opacity: 0;
+    transform: translate(1020px, 700px) scale(0.7) rotate(44deg);
+  }
+}
+
+@keyframes caminoS5ToS6Sparkle2 {
+  0%,
+  92% {
+    opacity: 0;
+    transform: translate(1120px, 555px) scale(0.65) rotate(0deg);
+  }
+
+  95% {
+    opacity: 0.95;
+    transform: translate(1040px, 640px) scale(1) rotate(-20deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(1160px, 745px) scale(0.7) rotate(-42deg);
+  }
+}
+
+/* Scene 6 background layer and overlays. */
+.camino-hero__scene--6 {
+  opacity: 0;
+  transform-origin: center center;
+  animation:
+    caminoScene6Visibility var(--camino-loop) linear infinite,
+    caminoScene6Push var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__overlay--scene6 {
+  opacity: 0;
+  pointer-events: none;
+  animation: caminoScene6Visibility var(--camino-loop) linear infinite;
+}
+
+@keyframes caminoScene6Visibility {
+  0%,
+  92% {
+    opacity: 0;
+  }
+
+  95%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes caminoScene6Push {
+  0%,
+  92% {
+    transform: scale(1.035) translateX(10px) translateY(2px);
+  }
+
+  96% {
+    transform: scale(1.012) translateX(0px) translateY(0px);
+  }
+
+  100% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+}
+
+.camino-hero__s6-logo-wrap,
+.camino-hero__s6-tagline,
+.camino-hero__s6-no-pay,
+.camino-hero__s6-bottom-strip,
+.camino-hero__s6-road-wrap {
+  opacity: 0;
+}
+
+.camino-hero__s6-logo-wrap {
+  transform-origin: 1200px 150px;
+  animation: caminoS6LogoIn var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s6-logo-c {
+  fill: none;
+  stroke: #123f8b;
+  stroke-width: 24;
+  stroke-linecap: round;
+  stroke-dasharray: 310;
+  stroke-dashoffset: 310;
+  filter: url(#caminoGlow);
+  animation: caminoS6LogoDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s6-logo-text,
+.camino-hero__s6-logo-slc {
+  fill: #123f8b;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+}
+
+.camino-hero__s6-logo-text {
+  font-size: 66px;
+  letter-spacing: 0.5px;
+}
+
+.camino-hero__s6-logo-slc {
+  font-size: 34px;
+  letter-spacing: 9px;
+}
+
+@keyframes caminoS6LogoIn {
+  0%,
+  93% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+
+  96%,
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes caminoS6LogoDraw {
+  0%,
+  93% {
+    stroke-dashoffset: 310;
+  }
+
+  97%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.camino-hero__s6-tagline {
+  animation: caminoS6TaglineIn var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s6-tagline-main,
+.camino-hero__s6-tagline-es {
+  fill: #123f8b;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+}
+
+.camino-hero__s6-tagline-main {
+  font-size: 48px;
+}
+
+.camino-hero__s6-tagline-es {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+@keyframes caminoS6TaglineIn {
+  0%,
+  94% {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+
+  97%,
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.camino-hero__s6-no-pay {
+  animation: caminoS6NoPayIn var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s6-no-pay rect {
+  fill: rgba(255, 255, 255, 0.08);
+  stroke: rgba(18, 63, 139, 0.84);
+  stroke-width: 4;
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s6-no-pay text {
+  fill: #123f8b;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 31px;
+}
+
+@keyframes caminoS6NoPayIn {
+  0%,
+  95% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  98%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.camino-hero__s6-bottom-strip {
+  animation: caminoS6BottomIn var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s6-bottom-strip rect {
+  fill: rgba(18, 63, 139, 0.22);
+}
+
+.camino-hero__s6-bottom-strip text {
+  fill: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.camino-hero__s6-bottom-strip .camino-hero__s6-bottom-sub {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@keyframes caminoS6BottomIn {
+  0%,
+  95% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  98%,
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.camino-hero__s6-road-wrap {
+  filter: url(#caminoGlow);
+  animation: caminoS6RoadVisibility var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s6-road {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.camino-hero__s6-road--outer {
+  stroke: rgba(255, 215, 118, 0.74);
+  stroke-width: 44;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+  animation: caminoS6RoadDrawOuter var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s6-road--inner {
+  stroke: rgba(255, 255, 255, 0.94);
+  stroke-width: 10;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+  animation: caminoS6RoadDrawInner var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS6RoadVisibility {
+  0%,
+  92% {
+    opacity: 0;
+  }
+
+  95% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes caminoS6RoadDrawOuter {
+  0%,
+  92% {
+    stroke-dashoffset: 1600;
+  }
+
+  97%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS6RoadDrawInner {
+  0%,
+  92% {
+    stroke-dashoffset: 1600;
+  }
+
+  97%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.camino-hero__s6-sparkle {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center center;
+}
+
+.camino-hero__s6-sparkle path {
+  fill: rgba(255, 230, 145, 0.98);
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s6-sparkle--1 {
+  animation: caminoS6Sparkle1 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s6-sparkle--2 {
+  animation: caminoS6Sparkle2 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s6-sparkle--3 {
+  animation: caminoS6Sparkle3 var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS6Sparkle1 {
+  0%,
+  95% {
+    opacity: 0;
+    transform: translate(555px, 185px) scale(0.65) rotate(0deg);
+  }
+
+  98% {
+    opacity: 1;
+    transform: translate(555px, 185px) scale(1) rotate(22deg);
+  }
+
+  100% {
+    opacity: 0.35;
+    transform: translate(540px, 168px) scale(0.75) rotate(42deg);
+  }
+}
+
+@keyframes caminoS6Sparkle2 {
+  0%,
+  94% {
+    opacity: 0;
+    transform: translate(330px, 325px) scale(0.65) rotate(0deg);
+  }
+
+  97% {
+    opacity: 0.95;
+    transform: translate(330px, 325px) scale(1) rotate(-18deg);
+  }
+
+  100% {
+    opacity: 0.25;
+    transform: translate(310px, 308px) scale(0.75) rotate(-40deg);
+  }
+}
+
+@keyframes caminoS6Sparkle3 {
+  0%,
+  95% {
+    opacity: 0;
+    transform: translate(1015px, 405px) scale(0.65) rotate(0deg);
+  }
+
+  98% {
+    opacity: 0.95;
+    transform: translate(1015px, 405px) scale(1) rotate(18deg);
+  }
+
+  100% {
+    opacity: 0.28;
+    transform: translate(1040px, 385px) scale(0.75) rotate(38deg);
+  }
+}
+
+/* A final road flash helps the loop return to Scene 1's road environment. */
+.camino-hero__s6-loop-sweep {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  stroke: rgba(190, 226, 255, 0.85);
+  stroke-width: 64;
+  stroke-dasharray: 1900;
+  stroke-dashoffset: 1900;
+  animation: caminoS6LoopSweep var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS6LoopSweep {
+  0%,
+  97% {
+    opacity: 0;
+    stroke-dashoffset: 1900;
+  }
+
+  99% {
+    opacity: 0.75;
+    stroke-dashoffset: 500;
+  }
+
+  100% {
+    opacity: 0.12;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Reduced-motion fallback now shows the final built scene. */
+@media (prefers-reduced-motion: reduce) {
+  .camino-hero__scene--1,
+  .camino-hero__scene--2,
+  .camino-hero__scene--3,
+  .camino-hero__scene--4,
+  .camino-hero__scene--5 {
+    opacity: 0;
+  }
+
+  .camino-hero__scene--6 {
+    opacity: 1;
+    transform: none;
+  }
+
+  .camino-hero__overlay--scene1,
+  .camino-hero__overlay--scene2,
+  .camino-hero__overlay--scene3,
+  .camino-hero__overlay--scene4,
+  .camino-hero__overlay--scene4to5,
+  .camino-hero__overlay--scene5,
+  .camino-hero__overlay--scene5to6,
+  .camino-hero__overlay--scene6 {
+    opacity: 0;
+  }
+}
+
 /* ---------- Responsive tuning ---------- */
 
 @media (max-width: 900px) {
@@ -4929,6 +5519,117 @@
       <path d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z"></path>
     </g>
   </g>
+</g>
+
+
+<!-- Scene 5 to Scene 6 transition overlay -->
+<g class="camino-hero__overlay camino-hero__overlay--scene5to6">
+  <path
+    class="camino-hero__s5to6-road camino-hero__s5to6-road--outer"
+    d="M 560 545
+       C 760 575, 940 622, 1040 710
+       C 1145 802, 1325 875, 1710 930"
+  ></path>
+
+  <path
+    class="camino-hero__s5to6-road camino-hero__s5to6-road--inner"
+    d="M 560 545
+       C 760 575, 940 622, 1040 710
+       C 1145 802, 1325 875, 1710 930"
+  ></path>
+
+  <g class="camino-hero__s5to6-sparkles">
+    <g class="camino-hero__s5to6-sparkle camino-hero__s5to6-sparkle--1">
+      <path d="M0,-12 L3,-3 L12,0 L3,3 L0,12 L-3,3 L-12,0 L-3,-3 Z"></path>
+    </g>
+    <g class="camino-hero__s5to6-sparkle camino-hero__s5to6-sparkle--2">
+      <path d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z"></path>
+    </g>
+  </g>
+</g>
+
+<!-- Scene 6 overlay group -->
+<g class="camino-hero__overlay camino-hero__overlay--scene6">
+  <!-- Final glowing road motif -->
+  <g class="camino-hero__s6-road-wrap">
+    <path
+      class="camino-hero__s6-road camino-hero__s6-road--outer"
+      d="M 1660 920
+         C 1435 830, 1260 765, 1138 690
+         C 1010 612, 960 545, 997 465
+         C 1032 392, 1015 305, 955 235"
+    ></path>
+
+    <path
+      class="camino-hero__s6-road camino-hero__s6-road--inner"
+      d="M 1660 920
+         C 1435 830, 1260 765, 1138 690
+         C 1010 612, 960 545, 997 465
+         C 1032 392, 1015 305, 955 235"
+    ></path>
+  </g>
+
+  <!-- Logo draw. This supplements the storyboard logo with a crisp SVG draw-in. -->
+  <g class="camino-hero__s6-logo-wrap">
+    <path
+      class="camino-hero__s6-logo-c"
+      d="M 1118 92
+         C 1058 70, 1018 104, 1015 154
+         C 1012 205, 1056 235, 1112 214"
+    ></path>
+    <text class="camino-hero__s6-logo-text" x="1160" y="162">camino</text>
+    <text class="camino-hero__s6-logo-slc" x="1274" y="218">SLC</text>
+  </g>
+
+  <!-- Real SVG text overlay for the final message -->
+  <g class="camino-hero__s6-tagline">
+    <text class="camino-hero__s6-tagline-main" x="1078" y="326">Your road to recovery</text>
+    <text class="camino-hero__s6-tagline-main" x="1096" y="390">and compensation!</text>
+    <text class="camino-hero__s6-tagline-es" x="1076" y="472">¡Tu camino hacia la recuperación</text>
+    <text class="camino-hero__s6-tagline-es" x="1178" y="518">y la compensación!</text>
+  </g>
+
+  <!-- No-win/no-pay highlight and editable text -->
+  <g class="camino-hero__s6-no-pay">
+    <rect x="62" y="626" width="770" height="136" rx="18"></rect>
+    <text x="218" y="686">If you DON’T WIN</text>
+    <text x="226" y="735">you DON’T PAY!</text>
+    <text x="586" y="688">¡Si no gana</text>
+    <text x="610" y="735">no paga!</text>
+  </g>
+
+  <!-- Bottom strip subtle editable overlay -->
+  <g class="camino-hero__s6-bottom-strip">
+    <rect x="0" y="782" width="1640" height="138"></rect>
+    <text x="128" y="835">Personal Injury</text>
+    <text class="camino-hero__s6-bottom-sub" x="128" y="865">Lesiones Personales</text>
+
+    <text x="476" y="835">Car Accidents</text>
+    <text class="camino-hero__s6-bottom-sub" x="476" y="865">Accidentes de Auto</text>
+
+    <text x="794" y="835">Proudly Serving</text>
+    <text class="camino-hero__s6-bottom-sub" x="794" y="865">Salt Lake City and Beyond</text>
+  </g>
+
+  <g class="camino-hero__s6-sparkles">
+    <g class="camino-hero__s6-sparkle camino-hero__s6-sparkle--1">
+      <path d="M0,-13 L4,-4 L13,0 L4,4 L0,13 L-4,4 L-13,0 L-4,-4 Z"></path>
+    </g>
+    <g class="camino-hero__s6-sparkle camino-hero__s6-sparkle--2">
+      <path d="M0,-11 L3,-3 L11,0 L3,3 L0,11 L-3,3 L-11,0 L-3,-3 Z"></path>
+    </g>
+    <g class="camino-hero__s6-sparkle camino-hero__s6-sparkle--3">
+      <path d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z"></path>
+    </g>
+  </g>
+
+  <!-- Loop-back sweep toward Scene 1 -->
+  <path
+    class="camino-hero__s6-loop-sweep"
+    d="M 1660 820
+       C 1375 720, 1105 650, 850 610
+       C 545 562, 280 555, -120 610"
+  ></path>
 </g>
 
 
