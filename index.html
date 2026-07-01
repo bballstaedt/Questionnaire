@@ -632,6 +632,139 @@
   }
 }
 
+
+.camino-hero__s4-consult-card {
+  opacity: 0;
+  transform-box: view-box;
+  transform-origin: 820px 716px;
+  animation: caminoS4ConsultCard var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4-consult-bg {
+  fill: rgba(255, 255, 255, 0.92);
+  stroke: rgba(18, 63, 139, 0.98);
+  stroke-width: 5;
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s4-consult-border {
+  fill: none;
+  stroke: rgba(255, 215, 112, 0.98);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 1100;
+  stroke-dashoffset: 1100;
+  animation: caminoS4ConsultBorder var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4-consult-shine {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.82);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  animation: caminoS4ConsultShine var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4-consult-title,
+.camino-hero__s4-consult-subtitle {
+  fill: #123f8b;
+  stroke: rgba(255, 255, 255, 0.96);
+  stroke-linejoin: round;
+  paint-order: stroke fill;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  text-anchor: middle;
+  letter-spacing: 1px;
+}
+
+.camino-hero__s4-consult-title {
+  font-size: 58px;
+  stroke-width: 6px;
+}
+
+.camino-hero__s4-consult-subtitle {
+  font-size: 52px;
+  stroke-width: 5px;
+}
+
+@keyframes caminoS4ConsultCard {
+  0%,
+  36.05% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.88);
+  }
+
+  40.4% {
+    opacity: 1;
+    transform: translateY(0px) scale(1.06);
+  }
+
+  42.7% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+
+  53.2% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+
+  54.2%,
+  100% {
+    opacity: 0;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes caminoS4ConsultBorder {
+  0%,
+  36.05% {
+    opacity: 0;
+    stroke-dashoffset: 1100;
+  }
+
+  41.1% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+
+  53.2% {
+    opacity: 0.9;
+    stroke-dashoffset: 0;
+  }
+
+  54.2%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS4ConsultShine {
+  0%,
+  40.2% {
+    opacity: 0;
+    stroke-dashoffset: 360;
+  }
+
+  43.4% {
+    opacity: 0.95;
+    stroke-dashoffset: 90;
+  }
+
+  47.8% {
+    opacity: 0;
+    stroke-dashoffset: -180;
+  }
+
+  100% {
+    opacity: 0;
+    stroke-dashoffset: -180;
+  }
+}
+
 .camino-hero__s4-sparkle {
   opacity: 0;
   transform-box: fill-box;
@@ -774,20 +907,11 @@
 }
 
 
-.camino-hero__s5-prize-ring,
 .camino-hero__s5-prize-burst,
 .camino-hero__s5-confetti,
 .camino-hero__s5-medal-shine {
   opacity: 0;
   filter: url(#caminoGlow);
-}
-
-.camino-hero__s5-prize-ring {
-  fill: none;
-  stroke: rgba(255, 232, 158, 0.95);
-  stroke-width: 8;
-  stroke-dasharray: 12 18;
-  animation: caminoS5PrizeRing var(--camino-loop) ease-in-out infinite;
 }
 
 .camino-hero__s5-prize-burst path {
@@ -833,30 +957,6 @@
 .camino-hero__s5-confetti--4 { animation: caminoS5Confetti4 var(--camino-loop) ease-in-out infinite; }
 .camino-hero__s5-confetti--5 { animation: caminoS5Confetti5 var(--camino-loop) ease-in-out infinite; }
 .camino-hero__s5-confetti--6 { animation: caminoS5Confetti6 var(--camino-loop) ease-in-out infinite; }
-
-@keyframes caminoS5PrizeRing {
-  0%,
-  51.179% {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-
-  55.208% {
-    opacity: 0.95;
-    transform: scale(1);
-  }
-
-  61.844% {
-    opacity: 0.45;
-    transform: scale(1.12);
-  }
-
-  66.228%,
-  100% {
-    opacity: 0;
-    transform: scale(1.2);
-  }
-}
 
 @keyframes caminoS5PrizeBurst {
   0%,
@@ -1001,17 +1101,22 @@
 .camino-hero__s6-tagline-main,
 .camino-hero__s6-tagline-es {
   fill: #123f8b;
+  stroke: rgba(255, 255, 255, 0.94);
+  stroke-linejoin: round;
+  paint-order: stroke fill;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
 }
 
 .camino-hero__s6-tagline-main {
   font-size: 48px;
+  stroke-width: 7px;
 }
 
 .camino-hero__s6-tagline-es {
   font-size: 30px;
   font-weight: 800;
+  stroke-width: 5px;
 }
 
 
@@ -1249,7 +1354,7 @@
 
 
 .camino-hero__s6-tagline {
-  transform-origin: 1240px 420px;
+  transform-origin: 1125px 420px;
   animation: caminoS6TextShrinkInHold var(--camino-loop) ease-in-out infinite;
 }
 
@@ -1758,12 +1863,12 @@
   0%,
   61.334% {
     opacity: 0;
-    transform: translateX(24px) scale(1.5);
+    transform: translateX(14px) scale(1.28);
   }
 
   62.199% {
     opacity: 1;
-    transform: translateX(24px) scale(1.5);
+    transform: translateX(14px) scale(1.28);
   }
 
   65.233% {
@@ -2019,7 +2124,7 @@
       dur="28.76s"
       repeatCount="indefinite"
       rotate="auto"
-      keyTimes="0;0.1973;0.2779;1"
+      keyTimes="0;0.1896;0.2779;1"
       keyPoints="0;0;1;1"
       calcMode="linear"
     >
@@ -2033,15 +2138,6 @@
 <g class="camino-hero__overlay camino-hero__overlay--scene4">
   <!-- Mild dizziness/still-recovering effect near the patient's head -->
   <g class="camino-hero__s4-dizzy">
-    <path
-      class="camino-hero__s4-dizzy-arc camino-hero__s4-dizzy-arc--top"
-      d="M 612 300 C 660 260, 730 258, 782 298"
-    ></path>
-    <path
-      class="camino-hero__s4-dizzy-arc camino-hero__s4-dizzy-arc--bottom"
-      d="M 630 346 C 675 374, 735 372, 778 340"
-    ></path>
-
     <g class="camino-hero__s4-star camino-hero__s4-star--1">
       <path d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z"></path>
     </g>
@@ -2086,6 +2182,32 @@
     </g>
   </g>
 
+  <!-- Lower-third bilingual free consultation banner -->
+  <g class="camino-hero__s4-consult-card">
+    <rect
+      class="camino-hero__s4-consult-bg"
+      x="430"
+      y="642"
+      width="780"
+      height="148"
+      rx="34"
+    ></rect>
+    <rect
+      class="camino-hero__s4-consult-border"
+      x="442"
+      y="654"
+      width="756"
+      height="124"
+      rx="28"
+    ></rect>
+    <path
+      class="camino-hero__s4-consult-shine"
+      d="M 480 670 C 650 630, 960 632, 1160 682"
+    ></path>
+    <text class="camino-hero__s4-consult-title" x="820" y="710">FREE CONSULTATION</text>
+    <text class="camino-hero__s4-consult-subtitle" x="820" y="765">CONSULTA GRATIS</text>
+  </g>
+
 </g>
 
 
@@ -2109,8 +2231,6 @@
   ></ellipse>
 
   <!-- Reward / prize accents around the compensation moment -->
-  <ellipse class="camino-hero__s5-prize-ring" cx="850" cy="555" rx="176" ry="86"></ellipse>
-
   <g class="camino-hero__s5-prize-burst">
     <path d="M 850 430 L 850 476"></path>
     <path d="M 922 446 L 902 486"></path>
@@ -2163,10 +2283,10 @@
 
   <!-- Real SVG text overlay for the final message -->
   <g class="camino-hero__s6-tagline">
-    <text class="camino-hero__s6-tagline-main" x="1078" y="326">Your road to recovery</text>
-    <text class="camino-hero__s6-tagline-main" x="1096" y="390">and compensation!</text>
-    <text class="camino-hero__s6-tagline-es" x="1076" y="472">¡Tu camino hacia la recuperación</text>
-    <text class="camino-hero__s6-tagline-es" x="1178" y="518">y la compensación!</text>
+    <text class="camino-hero__s6-tagline-main" x="968" y="326">Your road to recovery</text>
+    <text class="camino-hero__s6-tagline-main" x="986" y="390">and compensation!</text>
+    <text class="camino-hero__s6-tagline-es" x="966" y="472">¡Tu camino hacia la recuperación</text>
+    <text class="camino-hero__s6-tagline-es" x="1068" y="518">y la compensación!</text>
   </g>
 <g class="camino-hero__s6-sparkles">
     <g class="camino-hero__s6-sparkle camino-hero__s6-sparkle--1">
