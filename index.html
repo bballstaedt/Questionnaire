@@ -2580,6 +2580,317 @@
   }
 }
 
+
+
+/* ---------- User timing/alignment adjustments: Scene 1, Scene 2, Scene 3 ---------- */
+
+/* Scene 1: delay the road transition glow by about one second. */
+@keyframes caminoRoadMaskDraw {
+  0%,
+  8% {
+    stroke-dashoffset: 1800;
+  }
+
+  16% {
+    stroke-dashoffset: 920;
+  }
+
+  21%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoRoadReveal {
+  0%,
+  7% {
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.55;
+  }
+
+  18% {
+    opacity: 0.78;
+  }
+
+  22%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Scene 2: hold the phone scene about two more seconds before the road bridge begins. */
+@keyframes caminoScene2Visibility {
+  0%,
+  17% {
+    opacity: 0;
+  }
+
+  19%,
+  44% {
+    opacity: 1;
+  }
+
+  48%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeReveal {
+  0%,
+  40% {
+    opacity: 0;
+  }
+
+  42% {
+    opacity: 0.3;
+  }
+
+  45% {
+    opacity: 0.95;
+  }
+
+  48% {
+    opacity: 1;
+  }
+
+  51% {
+    opacity: 0.45;
+  }
+
+  56%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeMainDraw {
+  0%,
+  40% {
+    stroke-dashoffset: 2200;
+  }
+
+  45% {
+    stroke-dashoffset: 900;
+  }
+
+  49%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeBranchesDraw {
+  0%,
+  44% {
+    stroke-dashoffset: 2200;
+  }
+
+  48% {
+    stroke-dashoffset: 900;
+  }
+
+  53%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Scene 3: delay scene entrance to match the later Scene 2 bridge. */
+@keyframes caminoScene3Visibility {
+  0%,
+  43% {
+    opacity: 0;
+  }
+
+  46% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes caminoScene3Push {
+  0%,
+  43% {
+    transform: scale(1.035) translateY(4px);
+  }
+
+  50% {
+    transform: scale(1.01) translateY(0px);
+  }
+
+  68%,
+  100% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+}
+
+/* Scene 3: keep the temporary bubble accents aligned and brief. */
+@keyframes caminoS3BubblePopClean {
+  0%,
+  47% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  52% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+
+  57% {
+    opacity: 0.35;
+    transform: scale(1.03);
+  }
+
+  60%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Scene 3: retime C draw/pulse to the later entrance. */
+@keyframes caminoS3CPulse {
+  0%,
+  44% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  47% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  54% {
+    opacity: 1;
+    transform: scale(1.035);
+  }
+
+  64%,
+  100% {
+    opacity: 0.92;
+    transform: scale(1);
+  }
+}
+
+@keyframes caminoS3CDraw {
+  0%,
+  45% {
+    stroke-dashoffset: 260;
+  }
+
+  54%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS3CRays {
+  0%,
+  51% {
+    opacity: 0;
+  }
+
+  56% {
+    opacity: 1;
+  }
+
+  65%,
+  100% {
+    opacity: 0.45;
+  }
+}
+
+/* Scene 3: retime small road sparkles to the later entrance. */
+@keyframes caminoS3Sparkle1 {
+  0%,
+  52% {
+    opacity: 0;
+    transform: translate(585px, 602px) scale(0.65) rotate(0deg);
+  }
+
+  56% {
+    opacity: 1;
+    transform: translate(585px, 602px) scale(1) rotate(20deg);
+  }
+
+  63%,
+  100% {
+    opacity: 0;
+    transform: translate(560px, 590px) scale(0.7) rotate(42deg);
+  }
+}
+
+@keyframes caminoS3Sparkle2 {
+  0%,
+  53% {
+    opacity: 0;
+    transform: translate(1045px, 600px) scale(0.65) rotate(0deg);
+  }
+
+  57% {
+    opacity: 1;
+    transform: translate(1045px, 600px) scale(1) rotate(-20deg);
+  }
+
+  64%,
+  100% {
+    opacity: 0;
+    transform: translate(1080px, 590px) scale(0.7) rotate(-42deg);
+  }
+}
+
+@keyframes caminoS3Sparkle3 {
+  0%,
+  56% {
+    opacity: 0;
+    transform: translate(705px, 625px) scale(0.65) rotate(0deg);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate(705px, 625px) scale(1) rotate(18deg);
+  }
+
+  68%,
+  100% {
+    opacity: 0;
+    transform: translate(682px, 612px) scale(0.7) rotate(38deg);
+  }
+}
+
+@keyframes caminoS3Sparkle4 {
+  0%,
+  57% {
+    opacity: 0;
+    transform: translate(1210px, 630px) scale(0.65) rotate(0deg);
+  }
+
+  61% {
+    opacity: 1;
+    transform: translate(1210px, 630px) scale(1) rotate(-18deg);
+  }
+
+  69%,
+  100% {
+    opacity: 0;
+    transform: translate(1240px, 642px) scale(0.7) rotate(-38deg);
+  }
+}
+
 /* ---------- Responsive tuning ---------- */
 
 @media (max-width: 900px) {
@@ -2803,9 +3114,9 @@
 
       <!-- Arm pain pulse -->
 <g class="camino-hero__pain-lines">
-  <path class="camino-hero__pain-line camino-hero__pain-line--1" d="M 1220 520 Q 1244 508 1264 498"></path>
-  <path class="camino-hero__pain-line camino-hero__pain-line--2" d="M 1226 546 Q 1256 545 1280 542"></path>
-  <path class="camino-hero__pain-line camino-hero__pain-line--3" d="M 1218 572 Q 1244 586 1264 602"></path>
+  <path class="camino-hero__pain-line camino-hero__pain-line--1" d="M 1260 518 Q 1284 506 1306 496"></path>
+  <path class="camino-hero__pain-line camino-hero__pain-line--2" d="M 1268 546 Q 1298 545 1322 542"></path>
+  <path class="camino-hero__pain-line camino-hero__pain-line--3" d="M 1260 574 Q 1288 588 1308 604"></path>
 </g>
 
       <!-- Camera/push emphasis: road sweep / loop-entry motif -->
@@ -3007,13 +3318,13 @@
 
   <!-- Bubble pop accents only. The storyboard image already contains the text. -->
   <g class="camino-hero__s3-bubble camino-hero__s3-bubble--left">
-    <circle cx="108" cy="704" r="104"></circle>
-    <circle class="camino-hero__s3-bubble-ring" cx="108" cy="704" r="122"></circle>
+    <circle cx="166" cy="704" r="104"></circle>
+    <circle class="camino-hero__s3-bubble-ring" cx="166" cy="704" r="122"></circle>
   </g>
 
   <g class="camino-hero__s3-bubble camino-hero__s3-bubble--right">
-    <circle cx="1415" cy="704" r="104"></circle>
-    <circle class="camino-hero__s3-bubble-ring" cx="1415" cy="704" r="122"></circle>
+    <circle cx="1390" cy="684" r="104"></circle>
+    <circle class="camino-hero__s3-bubble-ring" cx="1390" cy="684" r="122"></circle>
   </g>
 
   <!-- Camino C pulse above the connecting road -->
