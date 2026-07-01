@@ -74,7 +74,7 @@
     }
 
 .camino-hero {
-  --camino-loop: 25s;
+  --camino-loop: 28s;
   --camino-blue: #123f8b;
   --camino-blue-2: #1e5dc2;
   --camino-blue-light: #8fc7ff;
@@ -5702,6 +5702,639 @@
   }
 }
 
+
+
+/* ---------- Final crossfade/timing cleanup pass ---------- */
+
+/* 28s loop gives Scene 4 an extra second while keeping Scene 6 on screen longer. */
+.camino-hero {
+  --camino-loop: 28s;
+}
+
+/* Scene 2 and Scene 3 now crossfade into each other instead of fading to blank. */
+@keyframes caminoScene2Visibility {
+  0%,
+  18% {
+    opacity: 0;
+  }
+
+  22%,
+  34% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene3Visibility {
+  0%,
+  33% {
+    opacity: 0;
+  }
+
+  39%,
+  53% {
+    opacity: 1;
+  }
+
+  59%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene3Push {
+  0%,
+  33% {
+    transform: scale(1.035) translateY(4px);
+  }
+
+  42% {
+    transform: scale(1.01) translateY(0px);
+  }
+
+  53% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+
+  59%,
+  100% {
+    transform: scale(1.024) translateX(-8px) translateY(-4px);
+  }
+}
+
+/* Scene 3 and Scene 4 now crossfade into each other, and Scene 4 lasts about a second longer. */
+@keyframes caminoScene4Visibility {
+  0%,
+  52% {
+    opacity: 0;
+  }
+
+  58%,
+  72% {
+    opacity: 1;
+  }
+
+  78%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene4Push {
+  0%,
+  52% {
+    transform: scale(1.035) translateX(8px) translateY(2px);
+  }
+
+  60% {
+    transform: scale(1.012) translateX(0px) translateY(0px);
+  }
+
+  72% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+
+  78%,
+  100% {
+    transform: scale(1.028) translateX(-8px) translateY(-4px);
+  }
+}
+
+/* Keep Scene 2's send animation early, then let the road bridge/crossfade carry into Scene 3. */
+@keyframes caminoS2SendPath {
+  0%,
+  21% {
+    opacity: 0;
+    stroke-dashoffset: 230;
+  }
+
+  23% {
+    opacity: 0.9;
+    stroke-dashoffset: 170;
+  }
+
+  29% {
+    opacity: 1;
+    stroke-dashoffset: 60;
+  }
+
+  35% {
+    opacity: 0.75;
+    stroke-dashoffset: -80;
+  }
+
+  38%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: -150;
+  }
+}
+
+@keyframes caminoS2SendPlaneOpacity {
+  0%,
+  21.5% {
+    opacity: 0;
+  }
+
+  22.5% {
+    opacity: 1;
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  38%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Slower Scene 2-to-3 bridge that overlaps both backgrounds. */
+@keyframes caminoS2RoadBridgeReveal {
+  0%,
+  31% {
+    opacity: 0;
+  }
+
+  34% {
+    opacity: 0.28;
+  }
+
+  38% {
+    opacity: 0.9;
+  }
+
+  43% {
+    opacity: 0.95;
+  }
+
+  48% {
+    opacity: 0.35;
+  }
+
+  52%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeMainDraw {
+  0%,
+  31% {
+    stroke-dashoffset: 2200;
+  }
+
+  38% {
+    stroke-dashoffset: 900;
+  }
+
+  45%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeBranchesDraw {
+  0%,
+  36% {
+    stroke-dashoffset: 2200;
+  }
+
+  43% {
+    stroke-dashoffset: 900;
+  }
+
+  50%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Retimed Scene 3 accents for the earlier crossfade. */
+@keyframes caminoS3BubbleExpandPulse {
+  0%,
+  39% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  41% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+
+  45% {
+    opacity: 0.75;
+    transform: scale(1.5);
+  }
+
+  49% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  53%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes caminoS3CPulse {
+  0%,
+  35% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  39% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  47% {
+    opacity: 1;
+    transform: scale(1.035);
+  }
+
+  59%,
+  100% {
+    opacity: 0.92;
+    transform: scale(1);
+  }
+}
+
+@keyframes caminoS3CDraw {
+  0%,
+  36% {
+    stroke-dashoffset: 260;
+  }
+
+  44%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS3CRays {
+  0%,
+  41% {
+    opacity: 0;
+  }
+
+  46% {
+    opacity: 1;
+  }
+
+  59%,
+  100% {
+    opacity: 0.45;
+  }
+}
+
+/* Retimed Scene 4 overlays for the longer Scene 4 window. */
+@keyframes caminoS4CareGlow {
+  0%,
+  54% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 0.85;
+  }
+
+  72% {
+    opacity: 0.42;
+  }
+
+  78%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS4DizzyIn {
+  0%,
+  55% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 0.7;
+  }
+
+  70% {
+    opacity: 0.38;
+  }
+
+  78%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Scene 4-to-5 transition starts later to match the longer Scene 4. */
+@keyframes caminoS4ToS5Visibility {
+  0%,
+  70% {
+    opacity: 0;
+  }
+
+  73% {
+    opacity: 0.28;
+  }
+
+  77% {
+    opacity: 0.95;
+  }
+
+  81% {
+    opacity: 0.45;
+  }
+
+  85%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS4ToS5SweepOuter {
+  0%,
+  70% {
+    stroke-dashoffset: 1850;
+  }
+
+  77% {
+    stroke-dashoffset: 650;
+  }
+
+  84%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS4ToS5SweepInner {
+  0%,
+  70% {
+    stroke-dashoffset: 1850;
+  }
+
+  77% {
+    stroke-dashoffset: 740;
+  }
+
+  84%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Scene 5 remains the outcome beat and crossfades into Scene 6. */
+@keyframes caminoScene5Visibility {
+  0%,
+  69% {
+    opacity: 0;
+  }
+
+  74%,
+  85% {
+    opacity: 1;
+  }
+
+  91%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene5Push {
+  0%,
+  69% {
+    transform: scale(1.035) translateX(8px) translateY(2px);
+  }
+
+  75% {
+    transform: scale(1.012) translateX(0px) translateY(0px);
+  }
+
+  85% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+
+  91%,
+  100% {
+    transform: scale(1.02) translateX(-6px) translateY(-3px);
+  }
+}
+
+/* Remove the road strokes from the Scene 5-to-6 transition. Keep the soft sparkle handoff. */
+.camino-hero__s5to6-road,
+.camino-hero__s5to6-road--outer,
+.camino-hero__s5to6-road--inner {
+  display: none !important;
+}
+
+@keyframes caminoS5ToS6Visibility {
+  0%,
+  82% {
+    opacity: 0;
+  }
+
+  85% {
+    opacity: 0.45;
+  }
+
+  89% {
+    opacity: 0.25;
+  }
+
+  92%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS5ToS6Sparkle1 {
+  0%,
+  82% {
+    opacity: 0;
+    transform: translate(760px, 520px) scale(0.65) rotate(0deg);
+  }
+
+  86% {
+    opacity: 1;
+    transform: translate(900px, 470px) scale(1) rotate(22deg);
+  }
+
+  91%,
+  100% {
+    opacity: 0;
+    transform: translate(1060px, 430px) scale(0.7) rotate(44deg);
+  }
+}
+
+@keyframes caminoS5ToS6Sparkle2 {
+  0%,
+  83% {
+    opacity: 0;
+    transform: translate(940px, 555px) scale(0.65) rotate(0deg);
+  }
+
+  88% {
+    opacity: 0.95;
+    transform: translate(1110px, 610px) scale(1) rotate(-20deg);
+  }
+
+  92%,
+  100% {
+    opacity: 0;
+    transform: translate(1250px, 690px) scale(0.7) rotate(-42deg);
+  }
+}
+
+/* Scene 6 starts during Scene 5's fade, so there is no blank transition. */
+@keyframes caminoScene6Visibility {
+  0%,
+  82% {
+    opacity: 0;
+  }
+
+  86%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes caminoScene6Push {
+  0%,
+  82% {
+    transform: scale(1.035) translateX(10px) translateY(2px);
+  }
+
+  87% {
+    transform: scale(1.012) translateX(0px) translateY(0px);
+  }
+
+  100% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+}
+
+@keyframes caminoS6LogoInHold {
+  0%,
+  84% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+
+  89%,
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes caminoS6LogoDraw {
+  0%,
+  84% {
+    stroke-dashoffset: 310;
+  }
+
+  90%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS6TextPulseOut {
+  0%,
+  86% {
+    opacity: 0;
+    transform: translateX(24px) scale(1);
+  }
+
+  89% {
+    opacity: 1;
+    transform: translateX(0px) scale(1);
+  }
+
+  96% {
+    opacity: 0.42;
+    transform: translateX(0px) scale(1.5);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(0px) scale(1.5);
+  }
+}
+
+@keyframes caminoS6RoadInHold {
+  0%,
+  84% {
+    opacity: 0;
+  }
+
+  88% {
+    opacity: 0.92;
+  }
+
+  100% {
+    opacity: 0.72;
+  }
+}
+
+@keyframes caminoS6RoadOuterDraw {
+  0%,
+  84% {
+    stroke-dashoffset: 1900;
+  }
+
+  92%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS6RoadInnerDraw {
+  0%,
+  84% {
+    stroke-dashoffset: 1900;
+  }
+
+  92%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS6LoopSweep {
+  0%,
+  94% {
+    opacity: 0;
+    stroke-dashoffset: 1900;
+  }
+
+  98% {
+    opacity: 0.72;
+    stroke-dashoffset: 500;
+  }
+
+  100% {
+    opacity: 0.12;
+    stroke-dashoffset: 0;
+  }
+}
+
 /* ---------- Responsive tuning ---------- */
 
 @media (max-width: 900px) {
@@ -6030,7 +6663,7 @@
     <path d="M 0 -13 L 38 0 L 0 13 L 9 0 Z"></path>
 
     <animateMotion
-      dur="25s"
+      dur="28s"
       repeatCount="indefinite"
       rotate="auto"
       keyTimes="0;0.205;0.345;1"
