@@ -6335,6 +6335,487 @@
   }
 }
 
+
+
+/* ---------- Final requested refinements: Scene 1, Scene 2->3 roads, Scene 4 C, Scene 5->6 road ---------- */
+
+/* Scene 1 shortened by about one second; Scene 2 begins its crossfade earlier while later scene timings stay put. */
+@keyframes caminoScene1Visibility {
+  0%,
+  12.5% {
+    opacity: 1;
+  }
+
+  16.5% {
+    opacity: 0.45;
+  }
+
+  20.5%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene2Visibility {
+  0%,
+  14.5% {
+    opacity: 0;
+  }
+
+  18.5% {
+    opacity: 0.45;
+  }
+
+  22.5%,
+  34% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene2Push {
+  0%,
+  14.5% {
+    transform: scale(1.035) translateX(12px) translateY(0px);
+  }
+
+  22.5% {
+    transform: scale(1.015) translateX(4px) translateY(0px);
+  }
+
+  40%,
+  100% {
+    transform: scale(1.02) translateX(-4px) translateY(-2px);
+  }
+}
+
+/* Scene 1 road reveal adjusted to finish within the shortened Scene 1 crossfade. */
+@keyframes caminoRoadMaskDraw {
+  0%,
+  7% {
+    stroke-dashoffset: 1800;
+  }
+
+  14% {
+    stroke-dashoffset: 920;
+  }
+
+  20%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoRoadReveal {
+  0%,
+  7% {
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.55;
+  }
+
+  17% {
+    opacity: 0.78;
+  }
+
+  20.5%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Scene 1 smoke: larger and shifted left about 10% of the full scene width. */
+.camino-hero__smoke--1,
+.camino-hero__smoke--2 {
+  transform-origin: 812px 398px;
+}
+
+@keyframes caminoSmokeRise1 {
+  0%,
+  2% {
+    transform: translate(-164px, 10px) scale(2);
+    opacity: 0;
+  }
+
+  5% {
+    transform: translate(-164px, 0px) scale(2);
+    opacity: 0.72;
+  }
+
+  11% {
+    transform: translate(-164px, -22px) scale(2);
+    opacity: 0.6;
+  }
+
+  18% {
+    transform: translate(-164px, -46px) scale(2);
+    opacity: 0.18;
+  }
+
+  20.5%,
+  100% {
+    transform: translate(-164px, -58px) scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes caminoSmokeRise2 {
+  0%,
+  3% {
+    transform: translate(-164px, 12px) scale(2);
+    opacity: 0;
+  }
+
+  6% {
+    transform: translate(-164px, 0px) scale(2);
+    opacity: 0.56;
+  }
+
+  12% {
+    transform: translate(-164px, -24px) scale(2);
+    opacity: 0.44;
+  }
+
+  18% {
+    transform: translate(-164px, -50px) scale(2);
+    opacity: 0.12;
+  }
+
+  20.5%,
+  100% {
+    transform: translate(-164px, -62px) scale(2);
+    opacity: 0;
+  }
+}
+
+/* Scene 1 dizziness stars: same path/positions, twice the size, and a faster motion cycle. */
+@keyframes caminoStarPulse1 {
+  0%,
+  2.3% {
+    opacity: 0;
+    transform: translate(1090px, 178px) scale(1.4) rotate(0deg);
+  }
+  4.6% {
+    opacity: 1;
+    transform: translate(1090px, 178px) scale(2) rotate(12deg);
+  }
+  7.7% {
+    opacity: 0.9;
+    transform: translate(1083px, 172px) scale(2.2) rotate(25deg);
+  }
+  11.5% {
+    opacity: 0.8;
+    transform: translate(1093px, 182px) scale(1.88) rotate(42deg);
+  }
+  17.7% {
+    opacity: 0;
+    transform: translate(1100px, 172px) scale(1.4) rotate(52deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(1100px, 172px) scale(1.4) rotate(52deg);
+  }
+}
+
+@keyframes caminoStarPulse2 {
+  0%,
+  3.1% {
+    opacity: 0;
+    transform: translate(1210px, 177px) scale(1.3) rotate(0deg);
+  }
+  5.4% {
+    opacity: 1;
+    transform: translate(1210px, 177px) scale(2) rotate(-10deg);
+  }
+  9.2% {
+    opacity: 0.92;
+    transform: translate(1215px, 168px) scale(2.16) rotate(8deg);
+  }
+  12.3% {
+    opacity: 0.72;
+    transform: translate(1205px, 180px) scale(1.84) rotate(28deg);
+  }
+  17.7%,
+  100% {
+    opacity: 0;
+    transform: translate(1221px, 172px) scale(1.36) rotate(38deg);
+  }
+}
+
+@keyframes caminoStarPulse3 {
+  0%,
+  3.8% {
+    opacity: 0;
+    transform: translate(1305px, 210px) scale(1.44) rotate(0deg);
+  }
+  6.2% {
+    opacity: 1;
+    transform: translate(1305px, 210px) scale(2) rotate(10deg);
+  }
+  9.2% {
+    opacity: 0.9;
+    transform: translate(1295px, 200px) scale(2.2) rotate(20deg);
+  }
+  12.3% {
+    opacity: 0.72;
+    transform: translate(1309px, 216px) scale(1.8) rotate(38deg);
+  }
+  17.7%,
+  100% {
+    opacity: 0;
+    transform: translate(1313px, 202px) scale(1.4) rotate(48deg);
+  }
+}
+
+/* Scene 2 to Scene 3: three separate road sweeps now move from the distant roads toward the viewer. */
+.camino-hero__s2-road-bridge-outer {
+  stroke: rgba(170, 220, 255, 0.78);
+  stroke-width: 48;
+  stroke-dasharray: 1700;
+  stroke-dashoffset: 1700;
+}
+
+.camino-hero__s2-road-bridge-inner {
+  stroke: rgba(255, 255, 255, 0.96);
+  stroke-width: 12;
+  stroke-dasharray: 1700;
+  stroke-dashoffset: 1700;
+}
+
+@keyframes caminoS2RoadBridgeReveal {
+  0%,
+  31% {
+    opacity: 0;
+  }
+
+  34% {
+    opacity: 0.28;
+  }
+
+  38% {
+    opacity: 0.92;
+  }
+
+  46% {
+    opacity: 0.82;
+  }
+
+  52% {
+    opacity: 0.18;
+  }
+
+  56%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeMainDraw {
+  0%,
+  31% {
+    stroke-dashoffset: 1700;
+  }
+
+  38% {
+    stroke-dashoffset: 900;
+  }
+
+  52%,
+  100% {
+    stroke-dashoffset: -120;
+  }
+}
+
+@keyframes caminoS2RoadBridgeBranchesDraw {
+  0%,
+  31% {
+    stroke-dashoffset: 1700;
+  }
+
+  39% {
+    stroke-dashoffset: 950;
+  }
+
+  53%,
+  100% {
+    stroke-dashoffset: -120;
+  }
+}
+
+/* Scene 4 Camino C above the patient. */
+.camino-hero__s4-c-wrap {
+  opacity: 0;
+  transform-origin: 665px 186px;
+  animation: caminoS4CPulse var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4-c-path {
+  fill: none;
+  stroke: #123f8b;
+  stroke-width: 18;
+  stroke-linecap: round;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  filter: url(#caminoGlow);
+  animation: caminoS4CDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4-c-rays path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.78);
+  stroke-width: 5;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: caminoS4CRays var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS4CPulse {
+  0%,
+  54% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  59% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  68% {
+    opacity: 1;
+    transform: scale(1.035);
+  }
+
+  78%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes caminoS4CDraw {
+  0%,
+  55% {
+    stroke-dashoffset: 220;
+  }
+
+  63%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS4CRays {
+  0%,
+  60% {
+    opacity: 0;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  76%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Scene 5 to Scene 6: restore a road animation that follows the exact Scene 6 road centerline. */
+.camino-hero__s5to6-road,
+.camino-hero__s5to6-road--outer,
+.camino-hero__s5to6-road--inner {
+  display: inline !important;
+}
+
+.camino-hero__s5to6-road {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s5to6-road--outer {
+  stroke: rgba(170, 220, 255, 0.78);
+  stroke-width: 48;
+  stroke-dasharray: 1900;
+  stroke-dashoffset: 1900;
+  animation: caminoS5ToS6RoadOuterFinal var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s5to6-road--inner {
+  stroke: rgba(255, 255, 255, 0.96);
+  stroke-width: 12;
+  stroke-dasharray: 1900;
+  stroke-dashoffset: 1900;
+  animation: caminoS5ToS6RoadInnerFinal var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS5ToS6Visibility {
+  0%,
+  82% {
+    opacity: 0;
+  }
+
+  85% {
+    opacity: 0.22;
+  }
+
+  88% {
+    opacity: 0.95;
+  }
+
+  93% {
+    opacity: 0.72;
+  }
+
+  97%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS5ToS6RoadOuterFinal {
+  0%,
+  82% {
+    stroke-dashoffset: 1900;
+  }
+
+  89% {
+    stroke-dashoffset: 740;
+  }
+
+  96%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS5ToS6RoadInnerFinal {
+  0%,
+  82% {
+    stroke-dashoffset: 1900;
+  }
+
+  89% {
+    stroke-dashoffset: 820;
+  }
+
+  96%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
 /* ---------- Responsive tuning ---------- */
 
 @media (max-width: 900px) {
@@ -6676,49 +7157,49 @@
 
 <!-- Scene 2 to Scene 3 full-width road bridge -->
 <g class="camino-hero__s2-road-bridge">
-  <!-- Main road sweeps in from lower right and lands at Scene 3's center split -->
+  <!-- Center road follows the road behind the patient and moves toward the viewer. -->
   <path
     class="camino-hero__s2-road-bridge-main camino-hero__s2-road-bridge-outer"
-    d="M 1700 960
-       C 1480 875, 1265 770, 1040 705
-       C 940 676, 865 662, 805 656"
+    d="M 812 430
+       C 812 505, 810 588, 806 680
+       C 802 780, 795 870, 786 980"
   ></path>
 
   <path
     class="camino-hero__s2-road-bridge-main camino-hero__s2-road-bridge-inner"
-    d="M 1700 960
-       C 1480 875, 1265 770, 1040 705
-       C 940 676, 865 662, 805 656"
+    d="M 812 430
+       C 812 505, 810 588, 806 680
+       C 802 780, 795 870, 786 980"
   ></path>
 
-  <!-- Left branch aligns with the medical side road in Scene 3 -->
+  <!-- Left road follows the medical-side road toward the lower-left foreground. -->
   <path
     class="camino-hero__s2-road-bridge-left camino-hero__s2-road-bridge-outer"
-    d="M 805 656
-       C 680 570, 540 535, 380 552
-       C 220 568, 90 635, -90 760"
+    d="M 540 548
+       C 430 565, 320 612, 205 688
+       C 92 762, -25 850, -165 980"
   ></path>
 
   <path
     class="camino-hero__s2-road-bridge-left camino-hero__s2-road-bridge-inner"
-    d="M 805 656
-       C 680 570, 540 535, 380 552
-       C 220 568, 90 635, -90 760"
+    d="M 540 548
+       C 430 565, 320 612, 205 688
+       C 92 762, -25 850, -165 980"
   ></path>
 
-  <!-- Right branch aligns with the attorney side road in Scene 3 -->
+  <!-- Right road follows the attorney-side road toward the lower-right foreground. -->
   <path
     class="camino-hero__s2-road-bridge-right camino-hero__s2-road-bridge-outer"
-    d="M 805 656
-       C 935 575, 1068 545, 1215 568
-       C 1385 595, 1540 685, 1730 810"
+    d="M 1048 548
+       C 1160 566, 1274 616, 1398 696
+       C 1515 772, 1630 858, 1785 980"
   ></path>
 
   <path
     class="camino-hero__s2-road-bridge-right camino-hero__s2-road-bridge-inner"
-    d="M 805 656
-       C 935 575, 1068 545, 1215 568
-       C 1385 595, 1540 685, 1730 810"
+    d="M 1048 548
+       C 1160 566, 1274 616, 1398 696
+       C 1515 772, 1630 858, 1785 980"
   ></path>
 </g>
   
@@ -6876,6 +7357,27 @@
 
     <g class="camino-hero__s4-star camino-hero__s4-star--2">
       <path d="M0,-9 L3,-3 L9,0 L3,3 L0,9 L-3,3 L-9,0 L-3,-3 Z"></path>
+    </g>
+  </g>
+
+
+
+  <!-- Animated Camino C above the patient's head -->
+  <g class="camino-hero__s4-c-wrap">
+    <path
+      class="camino-hero__s4-c-path"
+      d="M 702 142
+         C 660 126, 630 148, 628 186
+         C 626 224, 657 248, 698 234"
+    ></path>
+
+    <g class="camino-hero__s4-c-rays">
+      <path d="M 666 108 L 666 80"></path>
+      <path d="M 718 128 L 742 104"></path>
+      <path d="M 738 184 L 770 178"></path>
+      <path d="M 720 238 L 746 260"></path>
+      <path d="M 615 128 L 592 106"></path>
+      <path d="M 596 188 L 566 188"></path>
     </g>
   </g>
 
