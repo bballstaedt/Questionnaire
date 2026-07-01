@@ -2891,6 +2891,407 @@
   }
 }
 
+
+
+/* ---------- Final refinements: smoother 1->2 fade, Scene 1 dizziness placement, slower 2->3 bridge ---------- */
+
+/* Scene 1: move the dizziness arc and stars up/left so they sit above the patient's head. */
+@keyframes caminoDizzyOrbit {
+  0%,
+  2% {
+    transform: translate(-55px, -46px) rotate(-10deg);
+    opacity: 0;
+  }
+
+  5% {
+    transform: translate(-55px, -46px) rotate(0deg);
+    opacity: 0.72;
+  }
+
+  10% {
+    transform: translate(-55px, -46px) rotate(5deg);
+    opacity: 0.78;
+  }
+
+  15% {
+    transform: translate(-55px, -46px) rotate(-4deg);
+    opacity: 0.72;
+  }
+
+  20% {
+    transform: translate(-55px, -46px) rotate(8deg);
+    opacity: 0.62;
+  }
+
+  24%,
+  100% {
+    transform: translate(-55px, -46px) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes caminoStarPulse1 {
+  0%,
+  3% {
+    opacity: 0;
+    transform: translate(1090px, 178px) scale(0.7) rotate(0deg);
+  }
+  6% {
+    opacity: 1;
+    transform: translate(1090px, 178px) scale(1) rotate(12deg);
+  }
+  10% {
+    opacity: 0.9;
+    transform: translate(1083px, 172px) scale(1.1) rotate(25deg);
+  }
+  15% {
+    opacity: 0.8;
+    transform: translate(1093px, 182px) scale(0.94) rotate(42deg);
+  }
+  23% {
+    opacity: 0;
+    transform: translate(1100px, 172px) scale(0.7) rotate(52deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(1100px, 172px) scale(0.7) rotate(52deg);
+  }
+}
+
+@keyframes caminoStarPulse2 {
+  0%,
+  4% {
+    opacity: 0;
+    transform: translate(1210px, 177px) scale(0.65) rotate(0deg);
+  }
+  7% {
+    opacity: 1;
+    transform: translate(1210px, 177px) scale(1) rotate(-10deg);
+  }
+  12% {
+    opacity: 0.92;
+    transform: translate(1215px, 168px) scale(1.08) rotate(8deg);
+  }
+  16% {
+    opacity: 0.72;
+    transform: translate(1205px, 180px) scale(0.92) rotate(28deg);
+  }
+  23%,
+  100% {
+    opacity: 0;
+    transform: translate(1221px, 172px) scale(0.68) rotate(38deg);
+  }
+}
+
+@keyframes caminoStarPulse3 {
+  0%,
+  5% {
+    opacity: 0;
+    transform: translate(1305px, 210px) scale(0.72) rotate(0deg);
+  }
+  8% {
+    opacity: 1;
+    transform: translate(1305px, 210px) scale(1) rotate(10deg);
+  }
+  12% {
+    opacity: 0.9;
+    transform: translate(1295px, 200px) scale(1.1) rotate(20deg);
+  }
+  16% {
+    opacity: 0.72;
+    transform: translate(1309px, 216px) scale(0.9) rotate(38deg);
+  }
+  23%,
+  100% {
+    opacity: 0;
+    transform: translate(1313px, 202px) scale(0.7) rotate(48deg);
+  }
+}
+
+/* Scene 1 to Scene 2: slower crossfade. */
+@keyframes caminoScene1Visibility {
+  0%,
+  19% {
+    opacity: 1;
+  }
+
+  23% {
+    opacity: 0.45;
+  }
+
+  27%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene2Visibility {
+  0%,
+  19% {
+    opacity: 0;
+  }
+
+  23% {
+    opacity: 0.45;
+  }
+
+  27%,
+  46% {
+    opacity: 1;
+  }
+
+  54% {
+    opacity: 0.35;
+  }
+
+  62%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene2Push {
+  0%,
+  19% {
+    transform: scale(1.035) translateX(12px) translateY(0px);
+  }
+
+  27% {
+    transform: scale(1.015) translateX(4px) translateY(0px);
+  }
+
+  44%,
+  100% {
+    transform: scale(1.02) translateX(-4px) translateY(-2px);
+  }
+}
+
+/* Keep the Scene 2 send arrow early in Scene 2 so it finishes before the road bridge begins. */
+@keyframes caminoS2SendPath {
+  0%,
+  19.5% {
+    opacity: 0;
+    stroke-dashoffset: 230;
+  }
+
+  21% {
+    opacity: 0.9;
+    stroke-dashoffset: 170;
+  }
+
+  27% {
+    opacity: 1;
+    stroke-dashoffset: 60;
+  }
+
+  34% {
+    opacity: 0.75;
+    stroke-dashoffset: -80;
+  }
+
+  37%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: -150;
+  }
+}
+
+@keyframes caminoS2SendPlaneOpacity {
+  0%,
+  19.8% {
+    opacity: 0;
+  }
+
+  20.5% {
+    opacity: 1;
+  }
+
+  33.5% {
+    opacity: 1;
+  }
+
+  36.5%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Scene 2 to Scene 3: slower road bridge and slower split. */
+@keyframes caminoS2RoadBridgeReveal {
+  0%,
+  42% {
+    opacity: 0;
+  }
+
+  45% {
+    opacity: 0.3;
+  }
+
+  49% {
+    opacity: 0.95;
+  }
+
+  54% {
+    opacity: 1;
+  }
+
+  59% {
+    opacity: 0.45;
+  }
+
+  64%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeMainDraw {
+  0%,
+  42% {
+    stroke-dashoffset: 2200;
+  }
+
+  49% {
+    stroke-dashoffset: 900;
+  }
+
+  55%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeBranchesDraw {
+  0%,
+  47% {
+    stroke-dashoffset: 2200;
+  }
+
+  53% {
+    stroke-dashoffset: 900;
+  }
+
+  60%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Scene 3: slower entrance to match the extended road bridge. */
+@keyframes caminoScene3Visibility {
+  0%,
+  49% {
+    opacity: 0;
+  }
+
+  54% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes caminoScene3Push {
+  0%,
+  49% {
+    transform: scale(1.035) translateY(4px);
+  }
+
+  56% {
+    transform: scale(1.01) translateY(0px);
+  }
+
+  72%,
+  100% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+}
+
+/* Scene 3: keep the temporary bubble rings aligned and brief after the later entrance. */
+@keyframes caminoS3BubblePopClean {
+  0%,
+  53% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+
+  56% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  58% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+
+  63% {
+    opacity: 0.35;
+    transform: scale(1.03);
+  }
+
+  66%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Scene 3: retime C draw/pulse to the later entrance. */
+@keyframes caminoS3CPulse {
+  0%,
+  50% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  54% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  61% {
+    opacity: 1;
+    transform: scale(1.035);
+  }
+
+  70%,
+  100% {
+    opacity: 0.92;
+    transform: scale(1);
+  }
+}
+
+@keyframes caminoS3CDraw {
+  0%,
+  51% {
+    stroke-dashoffset: 260;
+  }
+
+  61%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS3CRays {
+  0%,
+  58% {
+    opacity: 0;
+  }
+
+  63% {
+    opacity: 1;
+  }
+
+  72%,
+  100% {
+    opacity: 0.45;
+  }
+}
+
 /* ---------- Responsive tuning ---------- */
 
 @media (max-width: 900px) {
@@ -3318,13 +3719,13 @@
 
   <!-- Bubble pop accents only. The storyboard image already contains the text. -->
   <g class="camino-hero__s3-bubble camino-hero__s3-bubble--left">
-    <circle cx="166" cy="704" r="104"></circle>
-    <circle class="camino-hero__s3-bubble-ring" cx="166" cy="704" r="122"></circle>
+    <circle cx="205" cy="688" r="104"></circle>
+    <circle class="camino-hero__s3-bubble-ring" cx="205" cy="688" r="122"></circle>
   </g>
 
   <g class="camino-hero__s3-bubble camino-hero__s3-bubble--right">
-    <circle cx="1390" cy="684" r="104"></circle>
-    <circle class="camino-hero__s3-bubble-ring" cx="1390" cy="684" r="122"></circle>
+    <circle cx="1415" cy="684" r="104"></circle>
+    <circle class="camino-hero__s3-bubble-ring" cx="1415" cy="684" r="122"></circle>
   </g>
 
   <!-- Camino C pulse above the connecting road -->
