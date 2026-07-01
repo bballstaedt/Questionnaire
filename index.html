@@ -3688,6 +3688,576 @@
   }
 }
 
+
+
+/* ---------- Scene 3 pulse rings, Scene 4 cleanup, Scene 5 outcome ---------- */
+
+/* Scene 3: use expanding rings instead of precise alignment overlays. */
+.camino-hero__s3-bubble {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center center;
+  animation: caminoS3BubbleExpandPulse var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s3-bubble circle:first-of-type {
+  fill: rgba(255, 255, 255, 0.03);
+  stroke: rgba(255, 255, 255, 0.70);
+  stroke-width: 3;
+}
+
+.camino-hero__s3-bubble-ring {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.62);
+  stroke-width: 3;
+  stroke-dasharray: 8 10;
+}
+
+.camino-hero__s3-bubble--left circle:first-of-type {
+  fill: rgba(23, 132, 93, 0.14);
+}
+
+.camino-hero__s3-bubble--right circle:first-of-type {
+  fill: rgba(18, 63, 139, 0.14);
+}
+
+.camino-hero__s3-bubble--right {
+  animation-delay: 0.12s;
+}
+
+@keyframes caminoS3BubbleExpandPulse {
+  0%,
+  54% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  56% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+
+  61% {
+    opacity: 0.75;
+    transform: scale(1.5);
+  }
+
+  65% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  69%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Scene 4: remove the semi-transparent oval covering the patient. */
+.camino-hero__s4-care-glow--patient {
+  display: none;
+}
+
+/* Scene 3 now exits after its connection moment so Scene 4 and Scene 5 can enter. */
+@keyframes caminoScene3Visibility {
+  0%,
+  49% {
+    opacity: 0;
+  }
+
+  54%,
+  70% {
+    opacity: 1;
+  }
+
+  76%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene3Push {
+  0%,
+  49% {
+    transform: scale(1.035) translateY(4px);
+  }
+
+  56% {
+    transform: scale(1.01) translateY(0px);
+  }
+
+  70% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+
+  76%,
+  100% {
+    transform: scale(1.024) translateX(-8px) translateY(-4px);
+  }
+}
+
+/* Scene 4 now has a defined ending and transitions into Scene 5. */
+@keyframes caminoScene4Visibility {
+  0%,
+  70% {
+    opacity: 0;
+  }
+
+  76%,
+  86% {
+    opacity: 1;
+  }
+
+  91%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoScene4Push {
+  0%,
+  70% {
+    transform: scale(1.035) translateX(8px) translateY(2px);
+  }
+
+  78% {
+    transform: scale(1.012) translateX(0px) translateY(0px);
+  }
+
+  86% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+
+  91%,
+  100% {
+    transform: scale(1.028) translateX(-8px) translateY(-4px);
+  }
+}
+
+/* Transition sweep from Scene 4 to Scene 5. */
+.camino-hero__overlay--scene4to5 {
+  opacity: 0;
+  pointer-events: none;
+  animation: caminoS4ToS5Visibility var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4to5-sweep {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s4to5-sweep--outer {
+  stroke: rgba(255, 215, 125, 0.72);
+  stroke-width: 54;
+  stroke-dasharray: 1850;
+  stroke-dashoffset: 1850;
+  animation: caminoS4ToS5SweepOuter var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4to5-sweep--inner {
+  stroke: rgba(255, 255, 255, 0.92);
+  stroke-width: 14;
+  stroke-dasharray: 1850;
+  stroke-dashoffset: 1850;
+  animation: caminoS4ToS5SweepInner var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS4ToS5Visibility {
+  0%,
+  82% {
+    opacity: 0;
+  }
+
+  85% {
+    opacity: 0.35;
+  }
+
+  88% {
+    opacity: 0.95;
+  }
+
+  91% {
+    opacity: 0.45;
+  }
+
+  94%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS4ToS5SweepOuter {
+  0%,
+  82% {
+    stroke-dashoffset: 1850;
+  }
+
+  88% {
+    stroke-dashoffset: 650;
+  }
+
+  92%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS4ToS5SweepInner {
+  0%,
+  82% {
+    stroke-dashoffset: 1850;
+  }
+
+  88% {
+    stroke-dashoffset: 740;
+  }
+
+  92%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.camino-hero__s4to5-sparkle {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center center;
+}
+
+.camino-hero__s4to5-sparkle path {
+  fill: rgba(255, 230, 150, 0.96);
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s4to5-sparkle--1 {
+  animation: caminoS4ToS5Sparkle1 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s4to5-sparkle--2 {
+  animation: caminoS4ToS5Sparkle2 var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS4ToS5Sparkle1 {
+  0%,
+  85% {
+    opacity: 0;
+    transform: translate(610px, 616px) scale(0.65) rotate(0deg);
+  }
+
+  89% {
+    opacity: 1;
+    transform: translate(610px, 616px) scale(1) rotate(20deg);
+  }
+
+  94%,
+  100% {
+    opacity: 0;
+    transform: translate(700px, 600px) scale(0.7) rotate(42deg);
+  }
+}
+
+@keyframes caminoS4ToS5Sparkle2 {
+  0%,
+  86% {
+    opacity: 0;
+    transform: translate(1040px, 630px) scale(0.65) rotate(0deg);
+  }
+
+  90% {
+    opacity: 0.95;
+    transform: translate(1040px, 630px) scale(1) rotate(-20deg);
+  }
+
+  95%,
+  100% {
+    opacity: 0;
+    transform: translate(1140px, 648px) scale(0.7) rotate(-42deg);
+  }
+}
+
+/* Scene 5 background layer and overlays. */
+.camino-hero__scene--5 {
+  opacity: 0;
+  transform-origin: center center;
+  animation:
+    caminoScene5Visibility var(--camino-loop) linear infinite,
+    caminoScene5Push var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__overlay--scene5 {
+  opacity: 0;
+  pointer-events: none;
+  animation: caminoScene5Visibility var(--camino-loop) linear infinite;
+}
+
+@keyframes caminoScene5Visibility {
+  0%,
+  86% {
+    opacity: 0;
+  }
+
+  91%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes caminoScene5Push {
+  0%,
+  86% {
+    transform: scale(1.035) translateX(8px) translateY(2px);
+  }
+
+  92% {
+    transform: scale(1.012) translateX(0px) translateY(0px);
+  }
+
+  100% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+}
+
+.camino-hero__s5-outcome-glow {
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS5OutcomeGlow var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s5-outcome-glow--check {
+  fill: rgba(255, 210, 105, 0.20);
+}
+
+.camino-hero__s5-outcome-glow--team {
+  fill: rgba(255, 255, 255, 0.07);
+}
+
+@keyframes caminoS5OutcomeGlow {
+  0%,
+  89% {
+    opacity: 0;
+  }
+
+  93% {
+    opacity: 0.85;
+  }
+
+  100% {
+    opacity: 0.42;
+  }
+}
+
+.camino-hero__s5-check-glow {
+  fill: rgba(255, 255, 255, 0.08);
+  stroke: rgba(255, 226, 132, 0.88);
+  stroke-width: 5;
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS5CheckGlow var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS5CheckGlow {
+  0%,
+  90% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  94% {
+    opacity: 0.88;
+    transform: scale(1.01);
+  }
+
+  100% {
+    opacity: 0.46;
+    transform: scale(1);
+  }
+}
+
+.camino-hero__s5-check-shimmer,
+.camino-hero__s5-handoff-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: url(#caminoGlow);
+  opacity: 0;
+}
+
+.camino-hero__s5-check-shimmer {
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 8;
+  stroke-dasharray: 850;
+  stroke-dashoffset: 850;
+  animation: caminoS5CheckShimmer var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s5-handoff-line {
+  stroke: rgba(255, 230, 150, 0.85);
+  stroke-width: 7;
+  stroke-dasharray: 820;
+  stroke-dashoffset: 820;
+  animation: caminoS5HandoffLine var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS5CheckShimmer {
+  0%,
+  92% {
+    opacity: 0;
+    stroke-dashoffset: 850;
+  }
+
+  96% {
+    opacity: 0.85;
+    stroke-dashoffset: 120;
+  }
+
+  100% {
+    opacity: 0;
+    stroke-dashoffset: -80;
+  }
+}
+
+@keyframes caminoS5HandoffLine {
+  0%,
+  90% {
+    opacity: 0;
+    stroke-dashoffset: 820;
+  }
+
+  94% {
+    opacity: 0.72;
+    stroke-dashoffset: 280;
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+.camino-hero__s5-sparkle {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center center;
+}
+
+.camino-hero__s5-sparkle path {
+  fill: rgba(255, 223, 116, 0.98);
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s5-sparkle--1 {
+  animation: caminoS5Sparkle1 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s5-sparkle--2 {
+  animation: caminoS5Sparkle2 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s5-sparkle--3 {
+  animation: caminoS5Sparkle3 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s5-sparkle--4 {
+  animation: caminoS5Sparkle4 var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS5Sparkle1 {
+  0%,
+  92% {
+    opacity: 0;
+    transform: translate(560px, 438px) scale(0.65) rotate(0deg);
+  }
+
+  95% {
+    opacity: 1;
+    transform: translate(560px, 438px) scale(1) rotate(20deg);
+  }
+
+  100% {
+    opacity: 0.35;
+    transform: translate(540px, 420px) scale(0.75) rotate(42deg);
+  }
+}
+
+@keyframes caminoS5Sparkle2 {
+  0%,
+  91% {
+    opacity: 0;
+    transform: translate(780px, 475px) scale(0.65) rotate(0deg);
+  }
+
+  94% {
+    opacity: 0.95;
+    transform: translate(780px, 475px) scale(1) rotate(-18deg);
+  }
+
+  100% {
+    opacity: 0.28;
+    transform: translate(800px, 455px) scale(0.75) rotate(-40deg);
+  }
+}
+
+@keyframes caminoS5Sparkle3 {
+  0%,
+  93% {
+    opacity: 0;
+    transform: translate(1060px, 440px) scale(0.65) rotate(0deg);
+  }
+
+  96% {
+    opacity: 0.95;
+    transform: translate(1060px, 440px) scale(1) rotate(18deg);
+  }
+
+  100% {
+    opacity: 0.3;
+    transform: translate(1085px, 420px) scale(0.75) rotate(38deg);
+  }
+}
+
+@keyframes caminoS5Sparkle4 {
+  0%,
+  94% {
+    opacity: 0;
+    transform: translate(1180px, 575px) scale(0.65) rotate(0deg);
+  }
+
+  97% {
+    opacity: 0.9;
+    transform: translate(1180px, 575px) scale(1) rotate(-18deg);
+  }
+
+  100% {
+    opacity: 0.25;
+    transform: translate(1210px, 558px) scale(0.75) rotate(-40deg);
+  }
+}
+
+/* Reduced-motion fallback now shows the newest built scene. */
+@media (prefers-reduced-motion: reduce) {
+  .camino-hero__scene--2,
+  .camino-hero__scene--3,
+  .camino-hero__scene--4 {
+    opacity: 0;
+  }
+
+  .camino-hero__scene--5 {
+    opacity: 1;
+    transform: none;
+  }
+
+  .camino-hero__overlay--scene4,
+  .camino-hero__overlay--scene4to5,
+  .camino-hero__overlay--scene5 {
+    opacity: 0;
+  }
+}
+
+
 /* ---------- Responsive tuning ---------- */
 
 @media (max-width: 900px) {
@@ -3739,6 +4309,32 @@
   }
 }
       
+
+
+/* Final reduced-motion override after legacy fallback. */
+@media (prefers-reduced-motion: reduce) {
+  .camino-hero__scene--1,
+  .camino-hero__scene--2,
+  .camino-hero__scene--3,
+  .camino-hero__scene--4 {
+    opacity: 0;
+  }
+
+  .camino-hero__scene--5 {
+    opacity: 1;
+    transform: none;
+  }
+
+  .camino-hero__overlay--scene1,
+  .camino-hero__overlay--scene2,
+  .camino-hero__overlay--scene3,
+  .camino-hero__overlay--scene4,
+  .camino-hero__overlay--scene4to5,
+  .camino-hero__overlay--scene5 {
+    opacity: 0;
+  }
+}
+
     </style>
   </head>
   <body>
@@ -4246,6 +4842,96 @@
 
 
     
+
+
+<!-- Scene 4 to Scene 5 transition overlay -->
+<g class="camino-hero__overlay camino-hero__overlay--scene4to5">
+  <!-- Warm progress sweep from care/counsel to compensation outcome -->
+  <path
+    class="camino-hero__s4to5-sweep camino-hero__s4to5-sweep--outer"
+    d="M -80 760
+       C 205 670, 450 628, 675 618
+       C 910 608, 1130 640, 1720 760"
+  ></path>
+
+  <path
+    class="camino-hero__s4to5-sweep camino-hero__s4to5-sweep--inner"
+    d="M -80 760
+       C 205 670, 450 628, 675 618
+       C 910 608, 1130 640, 1720 760"
+  ></path>
+
+  <g class="camino-hero__s4to5-sparkles">
+    <g class="camino-hero__s4to5-sparkle camino-hero__s4to5-sparkle--1">
+      <path d="M0,-12 L3,-3 L12,0 L3,3 L0,12 L-3,3 L-12,0 L-3,-3 Z"></path>
+    </g>
+    <g class="camino-hero__s4to5-sparkle camino-hero__s4to5-sparkle--2">
+      <path d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z"></path>
+    </g>
+  </g>
+</g>
+
+<!-- Scene 5 overlay group -->
+<g class="camino-hero__overlay camino-hero__overlay--scene5">
+  <!-- Warm outcome glow around check and patient -->
+  <ellipse
+    class="camino-hero__s5-outcome-glow camino-hero__s5-outcome-glow--check"
+    cx="850"
+    cy="555"
+    rx="430"
+    ry="175"
+  ></ellipse>
+
+  <ellipse
+    class="camino-hero__s5-outcome-glow camino-hero__s5-outcome-glow--team"
+    cx="780"
+    cy="500"
+    rx="620"
+    ry="330"
+  ></ellipse>
+
+  <!-- Check emphasis, aligned over the compensation check in the storyboard -->
+  <rect
+    class="camino-hero__s5-check-glow"
+    x="520"
+    y="462"
+    width="760"
+    height="190"
+    rx="20"
+  ></rect>
+
+  <path
+    class="camino-hero__s5-check-shimmer"
+    d="M 548 492
+       C 720 468, 930 470, 1246 516"
+  ></path>
+
+  <!-- Subtle handoff motion from attorney side toward patient/check -->
+  <path
+    class="camino-hero__s5-handoff-line"
+    d="M 1260 566
+       C 1135 536, 1000 524, 865 528
+       C 735 532, 636 548, 548 566"
+  ></path>
+
+  <!-- Compensation sparkles -->
+  <g class="camino-hero__s5-sparkles">
+    <g class="camino-hero__s5-sparkle camino-hero__s5-sparkle--1">
+      <path d="M0,-13 L4,-4 L13,0 L4,4 L0,13 L-4,4 L-13,0 L-4,-4 Z"></path>
+    </g>
+    <g class="camino-hero__s5-sparkle camino-hero__s5-sparkle--2">
+      <path d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z"></path>
+    </g>
+    <g class="camino-hero__s5-sparkle camino-hero__s5-sparkle--3">
+      <path d="M0,-12 L3,-3 L12,0 L3,3 L0,12 L-3,3 L-12,0 L-3,-3 Z"></path>
+    </g>
+    <g class="camino-hero__s5-sparkle camino-hero__s5-sparkle--4">
+      <path d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z"></path>
+    </g>
+  </g>
+</g>
+
+
     <!-- Reduced-motion representative text overlay -->
     <g class="camino-hero__reduced-label" aria-hidden="true">
       <rect x="70" y="730" width="650" height="120" rx="24"></rect>
