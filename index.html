@@ -2140,6 +2140,254 @@
 }
 
       
+
+/* ---------- Final Scene 2->3 bridge and Scene 3 cleanup overrides ---------- */
+
+/* Scene 2 exits so Scene 3 can take over cleanly */
+@keyframes caminoScene2Visibility {
+  0%,
+  17% {
+    opacity: 0;
+  }
+
+  19%,
+  34% {
+    opacity: 1;
+  }
+
+  38%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Retimed Scene 2 road bridge so it lands directly into Scene 3 */
+@keyframes caminoS2RoadBridgeReveal {
+  0%,
+  28% {
+    opacity: 0;
+  }
+
+  31% {
+    opacity: 0.25;
+  }
+
+  34% {
+    opacity: 0.95;
+  }
+
+  37% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 0.4;
+  }
+
+  44%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeMainDraw {
+  0%,
+  29% {
+    stroke-dashoffset: 2200;
+  }
+
+  34% {
+    stroke-dashoffset: 900;
+  }
+
+  38%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeBranchesDraw {
+  0%,
+  33% {
+    stroke-dashoffset: 2200;
+  }
+
+  37% {
+    stroke-dashoffset: 900;
+  }
+
+  42%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Move the animated Scene 3 C left and remove its halo */
+.camino-hero__s3-c-wrap {
+  opacity: 0;
+  transform-origin: 735px 125px;
+  animation: caminoS3CPulse var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s3-c-halo {
+  display: none;
+}
+
+/* Make the Scene 3 road split less overpowering */
+.camino-hero__s3-road--outer {
+  stroke-width: 34;
+}
+
+.camino-hero__s3-road--inner {
+  stroke-width: 8;
+}
+
+/* Road split animates in, then fades away */
+@keyframes caminoS3RoadOuterDraw {
+  0%,
+  35% {
+    opacity: 0;
+    stroke-dashoffset: 1900;
+  }
+
+  38% {
+    opacity: 0.95;
+    stroke-dashoffset: 1050;
+  }
+
+  42% {
+    opacity: 0.95;
+    stroke-dashoffset: 0;
+  }
+
+  47% {
+    opacity: 0.25;
+    stroke-dashoffset: 0;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS3RoadInnerDraw {
+  0%,
+  35% {
+    opacity: 0;
+    stroke-dashoffset: 1900;
+  }
+
+  39% {
+    opacity: 1;
+    stroke-dashoffset: 1050;
+  }
+
+  43% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+
+  47% {
+    opacity: 0.3;
+    stroke-dashoffset: 0;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Bubble accents only: no duplicate text, pop briefly, then fade */
+.camino-hero__s3-bubble {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center center;
+  animation: caminoS3BubblePopClean var(--camino-loop) cubic-bezier(.2, .9, .25, 1.15) infinite;
+}
+
+.camino-hero__s3-bubble circle:first-of-type {
+  stroke: rgba(255, 255, 255, 0.82);
+  stroke-width: 3;
+}
+
+.camino-hero__s3-bubble-ring {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.62);
+  stroke-width: 3;
+  stroke-dasharray: 8 10;
+}
+
+.camino-hero__s3-bubble--left circle:first-of-type {
+  fill: rgba(23, 132, 93, 0.22);
+}
+
+.camino-hero__s3-bubble--right circle:first-of-type {
+  fill: rgba(18, 63, 139, 0.22);
+}
+
+.camino-hero__s3-bubble--right {
+  animation-delay: 0.12s;
+}
+
+@keyframes caminoS3BubblePopClean {
+  0%,
+  39% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+
+  42% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  44% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+
+  49% {
+    opacity: 0.35;
+    transform: scale(1.03);
+  }
+
+  52%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Keep the C visible after drawing, since the static C has been removed from the Scene 3 background */
+@keyframes caminoS3CPulse {
+  0%,
+  36% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  48% {
+    opacity: 1;
+    transform: scale(1.035);
+  }
+
+  58%,
+  100% {
+    opacity: 0.92;
+    transform: scale(1);
+  }
+}
+
+
 /* ---------- Responsive tuning ---------- */
 
 @media (max-width: 900px) {
@@ -2565,43 +2813,33 @@
     ></path>
   </g>
 
-  <!-- Bubble pop accents. These sit over the existing storyboard bubbles. -->
+  <!-- Bubble pop accents only. The storyboard image already contains the text. -->
   <g class="camino-hero__s3-bubble camino-hero__s3-bubble--left">
-    <circle cx="145" cy="695" r="112"></circle>
-    <circle class="camino-hero__s3-bubble-ring" cx="145" cy="695" r="128"></circle>
-
-    <text x="145" y="652" text-anchor="middle">FREE</text>
-    <text x="145" y="700" text-anchor="middle">CONSULTATION</text>
-    <text x="145" y="748" text-anchor="middle">CONSULTA GRATIS</text>
+    <circle cx="108" cy="704" r="104"></circle>
+    <circle class="camino-hero__s3-bubble-ring" cx="108" cy="704" r="122"></circle>
   </g>
 
   <g class="camino-hero__s3-bubble camino-hero__s3-bubble--right">
-    <circle cx="1470" cy="695" r="112"></circle>
-    <circle class="camino-hero__s3-bubble-ring" cx="1470" cy="695" r="128"></circle>
-
-    <text x="1470" y="652" text-anchor="middle">FREE</text>
-    <text x="1470" y="700" text-anchor="middle">CONSULTATION</text>
-    <text x="1470" y="748" text-anchor="middle">CONSULTA GRATIS</text>
+    <circle cx="1415" cy="704" r="104"></circle>
+    <circle class="camino-hero__s3-bubble-ring" cx="1415" cy="704" r="122"></circle>
   </g>
 
   <!-- Camino C pulse above the connecting road -->
   <g class="camino-hero__s3-c-wrap">
-    <circle class="camino-hero__s3-c-halo" cx="820" cy="125" r="88"></circle>
-
     <path
       class="camino-hero__s3-c-path"
-      d="M 858 74
-         C 808 54, 770 82, 766 126
-         C 762 172, 802 200, 852 184"
+      d="M 773 74
+         C 723 54, 685 82, 681 126
+         C 677 172, 717 200, 767 184"
     ></path>
 
     <g class="camino-hero__s3-c-rays">
-      <path d="M 820 34 L820 2"></path>
-      <path d="M 874 52 L900 24"></path>
-      <path d="M 900 112 L936 104"></path>
-      <path d="M 880 184 L910 210"></path>
-      <path d="M 765 54 L738 28"></path>
-      <path d="M 742 126 L706 126"></path>
+      <path d="M 735 34 L735 2"></path>
+      <path d="M 789 52 L815 24"></path>
+      <path d="M 815 112 L851 104"></path>
+      <path d="M 795 184 L825 210"></path>
+      <path d="M 680 54 L653 28"></path>
+      <path d="M 657 126 L621 126"></path>
     </g>
   </g>
 
