@@ -1425,7 +1425,110 @@
   }
 }
       
+/* ---------- Scene 2 cleanup + road transition ---------- */
 
+/* Remove the extra artifact elements if any old markup/CSS remains */
+.camino-hero__s2-button-glow,
+.camino-hero__s2-send-burst {
+  display: none;
+}
+
+/* Road sweep at end of Scene 2 */
+.camino-hero__s2-road-transition {
+  opacity: 0;
+  filter: url(#caminoGlow);
+  animation: caminoS2RoadTransitionReveal var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s2-road-transition-outer,
+.camino-hero__s2-road-transition-inner {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.camino-hero__s2-road-transition-outer {
+  stroke: rgba(170, 220, 255, 0.78);
+  stroke-width: 58;
+  stroke-dasharray: 1300;
+  stroke-dashoffset: 1300;
+  animation: caminoS2RoadOuterDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s2-road-transition-inner {
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 16;
+  stroke-dasharray: 1300;
+  stroke-dashoffset: 1300;
+  animation: caminoS2RoadInnerDraw var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS2RoadTransitionReveal {
+  0%,
+  38% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.15;
+  }
+
+  43% {
+    opacity: 0.9;
+  }
+
+  48% {
+    opacity: 1;
+  }
+
+  53% {
+    opacity: 0.55;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS2RoadOuterDraw {
+  0%,
+  39% {
+    stroke-dashoffset: 1300;
+  }
+
+  44% {
+    stroke-dashoffset: 760;
+  }
+
+  49% {
+    stroke-dashoffset: 120;
+  }
+
+  53%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS2RoadInnerDraw {
+  0%,
+  39% {
+    stroke-dashoffset: 1300;
+  }
+
+  44% {
+    stroke-dashoffset: 820;
+  }
+
+  49% {
+    stroke-dashoffset: 180;
+  }
+
+  53%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
       
 /* ---------- Responsive tuning ---------- */
 
@@ -1692,15 +1795,6 @@
     ry="300"
   ></ellipse>
 
-  <!-- Subtle glow over the existing submit/check area -->
-  <rect
-    class="camino-hero__s2-button-glow"
-    x="1036"
-    y="768"
-    width="300"
-    height="106"
-    rx="22"
-  ></rect>
 
   <!-- Animated Camino C above the large phone -->
   <g class="camino-hero__s2-c-wrap">
@@ -1723,14 +1817,6 @@
     </g>
   </g>
 
-  <!-- Burst from the patient's small phone -->
-  <g class="camino-hero__s2-send-burst">
-    <circle cx="622" cy="560" r="18"></circle>
-    <path d="M 602 546 L 582 528"></path>
-    <path d="M 620 538 L 618 510"></path>
-    <path d="M 642 546 L 664 526"></path>
-    <path d="M 645 566 L 675 562"></path>
-  </g>
 
   <!-- The visible dotted path. The plane below follows this exact path. -->
   <path
@@ -1757,6 +1843,22 @@
     </animateMotion>
   </g>
 
+<g class="camino-hero__s2-road-transition">
+  <path
+    class="camino-hero__s2-road-transition-outer"
+    d="M 1650 940
+       C 1480 860, 1320 780, 1160 690
+       C 1000 600, 860 520, 730 435"
+  ></path>
+
+  <path
+    class="camino-hero__s2-road-transition-inner"
+    d="M 1650 940
+       C 1480 860, 1320 780, 1160 690
+       C 1000 600, 860 520, 730 435"
+  ></path>
+</g>
+  
 </g>
 
 
