@@ -2120,13 +2120,13 @@
   </g>
 
 
-  <!-- The visible dotted path. The plane below follows this exact path. -->
+  <!-- The visible dotted path. The plane below follows this exact path from the patient's phone toward the website phone. -->
   <path
     id="camino-s2-send-motion-path"
     class="camino-hero__s2-send-path"
-    d="M 622 560
-       C 720 472, 845 420, 982 405
-       C 1155 386, 1328 270, 1535 118"
+    d="M 642 565
+       C 705 505, 775 450, 845 418
+       C 890 397, 935 386, 982 386"
   ></path>
 
   <!-- Traveling paper plane, physically attached to the path above -->
@@ -2284,23 +2284,8 @@
 
 <!-- Scene 6 overlay group -->
 <g class="camino-hero__overlay camino-hero__overlay--scene6">
-  <!-- Keep only the animated Camino C arc at the top. -->
-  <g class="camino-hero__s6-logo-wrap">
-    <path
-      class="camino-hero__s6-logo-c"
-      d="M 1115 92
-         A 61 61 0 1 0 1115 214"
-    ></path>
-  </g>
-
-  <!-- Real SVG text overlay for the final message -->
-  <g class="camino-hero__s6-tagline">
-    <text class="camino-hero__s6-tagline-main" x="968" y="326">Your road to recovery</text>
-    <text class="camino-hero__s6-tagline-main" x="986" y="390">and compensation!</text>
-    <text class="camino-hero__s6-tagline-es" x="966" y="472">¡Tu camino hacia la recuperación</text>
-    <text class="camino-hero__s6-tagline-es" x="1068" y="518">y la compensación!</text>
-  </g>
-<g class="camino-hero__s6-sparkles">
+  <!-- The final artwork already includes the Camino logo and message, so no text or C arc is drawn over it. -->
+  <g class="camino-hero__s6-sparkles">
     <g class="camino-hero__s6-sparkle camino-hero__s6-sparkle--1">
       <path d="M0,-13 L4,-4 L13,0 L4,4 L0,13 L-4,4 L-13,0 L-4,-4 Z"></path>
     </g>
@@ -2314,14 +2299,7 @@
 </g>
 
 
-    <!-- Reduced-motion representative text overlay -->
-    <g class="camino-hero__reduced-label" aria-hidden="true">
-      <rect x="70" y="730" width="650" height="120" rx="24"></rect>
-      <text x="110" y="785">Camino SLC</text>
-      <text x="110" y="823">
-        Car accident help, medical care, and legal support
-      </text>
-    </g>
+    <!-- Reduced-motion uses the final scene artwork without an added text card. -->
   </svg>
 </section>
 
