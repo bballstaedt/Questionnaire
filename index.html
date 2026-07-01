@@ -1642,7 +1642,503 @@
   }
 }
 
-      
+/* ---------- Scene 3: We connect you ---------- */
+
+/* Scene 2 now exits so Scene 3 can take over */
+@keyframes caminoScene2Visibility {
+  0%,
+  17% {
+    opacity: 0;
+  }
+
+  19%,
+  34% {
+    opacity: 1;
+  }
+
+  38%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Retimed Scene 2 bridge so it lands directly into Scene 3 */
+@keyframes caminoS2RoadBridgeReveal {
+  0%,
+  28% {
+    opacity: 0;
+  }
+
+  31% {
+    opacity: 0.25;
+  }
+
+  34% {
+    opacity: 0.95;
+  }
+
+  37% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 0.4;
+  }
+
+  44%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeMainDraw {
+  0%,
+  29% {
+    stroke-dashoffset: 2200;
+  }
+
+  34% {
+    stroke-dashoffset: 900;
+  }
+
+  38%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS2RoadBridgeBranchesDraw {
+  0%,
+  33% {
+    stroke-dashoffset: 2200;
+  }
+
+  37% {
+    stroke-dashoffset: 900;
+  }
+
+  42%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Scene 3 background layer */
+.camino-hero__scene--3 {
+  opacity: 0;
+  transform-origin: center center;
+  animation:
+    caminoScene3Visibility var(--camino-loop) linear infinite,
+    caminoScene3Push var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__overlay--scene3 {
+  opacity: 0;
+  pointer-events: none;
+  animation: caminoScene3Visibility var(--camino-loop) linear infinite;
+}
+
+@keyframes caminoScene3Visibility {
+  0%,
+  33% {
+    opacity: 0;
+  }
+
+  36% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes caminoScene3Push {
+  0%,
+  33% {
+    transform: scale(1.035) translateY(4px);
+  }
+
+  40% {
+    transform: scale(1.01) translateY(0px);
+  }
+
+  58%,
+  100% {
+    transform: scale(1.018) translateX(-4px) translateY(-2px);
+  }
+}
+
+/* Scene 3 glows */
+.camino-hero__s3-side-glow,
+.camino-hero__s3-patient-glow {
+  filter: url(#caminoGlow);
+  opacity: 0;
+  animation: caminoS3GlowIn var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s3-side-glow--left {
+  fill: rgba(36, 155, 105, 0.16);
+}
+
+.camino-hero__s3-side-glow--right {
+  fill: rgba(30, 93, 194, 0.16);
+}
+
+.camino-hero__s3-patient-glow {
+  fill: rgba(255, 255, 255, 0.13);
+}
+
+@keyframes caminoS3GlowIn {
+  0%,
+  35% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  55% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.34;
+  }
+}
+
+/* Scene 3 road split */
+.camino-hero__s3-road {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s3-road--outer {
+  stroke: rgba(180, 226, 255, 0.78);
+  stroke-width: 48;
+  stroke-dasharray: 1900;
+  stroke-dashoffset: 1900;
+  animation: caminoS3RoadOuterDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s3-road--inner {
+  stroke: rgba(255, 255, 255, 0.92);
+  stroke-width: 12;
+  stroke-dasharray: 1900;
+  stroke-dashoffset: 1900;
+  animation: caminoS3RoadInnerDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s3-road--right {
+  animation-delay: 0.18s;
+}
+
+@keyframes caminoS3RoadOuterDraw {
+  0%,
+  35% {
+    opacity: 0;
+    stroke-dashoffset: 1900;
+  }
+
+  38% {
+    opacity: 1;
+    stroke-dashoffset: 1200;
+  }
+
+  45% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    opacity: 0.72;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS3RoadInnerDraw {
+  0%,
+  35% {
+    opacity: 0;
+    stroke-dashoffset: 1900;
+  }
+
+  39% {
+    opacity: 1;
+    stroke-dashoffset: 1200;
+  }
+
+  46% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    opacity: 0.8;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Scene 3 consultation bubbles */
+.camino-hero__s3-bubble {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center center;
+  animation: caminoS3BubblePop var(--camino-loop) cubic-bezier(.2, .9, .25, 1.15) infinite;
+}
+
+.camino-hero__s3-bubble circle:first-of-type {
+  fill: rgba(255, 255, 255, 0.07);
+  stroke: rgba(255, 255, 255, 0.72);
+  stroke-width: 3;
+}
+
+.camino-hero__s3-bubble-ring {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.55);
+  stroke-width: 3;
+  stroke-dasharray: 8 10;
+}
+
+.camino-hero__s3-bubble text {
+  fill: rgba(255, 255, 255, 0.95);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: 0.5px;
+}
+
+.camino-hero__s3-bubble--left circle:first-of-type {
+  fill: rgba(23, 132, 93, 0.28);
+}
+
+.camino-hero__s3-bubble--right circle:first-of-type {
+  fill: rgba(18, 63, 139, 0.28);
+}
+
+.camino-hero__s3-bubble--right {
+  animation-delay: 0.12s;
+}
+
+@keyframes caminoS3BubblePop {
+  0%,
+  39% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+
+  43% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  47% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  58% {
+    opacity: 0.78;
+    transform: scale(1.015);
+  }
+
+  100% {
+    opacity: 0.62;
+    transform: scale(1);
+  }
+}
+
+/* Scene 3 C icon */
+.camino-hero__s3-c-wrap {
+  opacity: 0;
+  transform-origin: 820px 125px;
+  animation: caminoS3CPulse var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s3-c-halo {
+  fill: rgba(255, 255, 255, 0.22);
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s3-c-path {
+  fill: none;
+  stroke: #123f8b;
+  stroke-width: 22;
+  stroke-linecap: round;
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  filter: url(#caminoGlow);
+  animation: caminoS3CDraw var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s3-c-rays path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.76);
+  stroke-width: 6;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: caminoS3CRays var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS3CPulse {
+  0%,
+  36% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  48% {
+    opacity: 1;
+    transform: scale(1.035);
+  }
+
+  58%,
+  100% {
+    opacity: 0.82;
+    transform: scale(1);
+  }
+}
+
+@keyframes caminoS3CDraw {
+  0%,
+  37% {
+    stroke-dashoffset: 260;
+  }
+
+  45%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes caminoS3CRays {
+  0%,
+  42% {
+    opacity: 0;
+  }
+
+  47% {
+    opacity: 1;
+  }
+
+  58%,
+  100% {
+    opacity: 0.45;
+  }
+}
+
+/* Scene 3 sparkles */
+.camino-hero__s3-sparkle {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center center;
+}
+
+.camino-hero__s3-sparkle path {
+  fill: #ffffff;
+  filter: url(#caminoGlow);
+}
+
+.camino-hero__s3-sparkle--1 {
+  animation: caminoS3Sparkle1 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s3-sparkle--2 {
+  animation: caminoS3Sparkle2 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s3-sparkle--3 {
+  animation: caminoS3Sparkle3 var(--camino-loop) ease-in-out infinite;
+}
+
+.camino-hero__s3-sparkle--4 {
+  animation: caminoS3Sparkle4 var(--camino-loop) ease-in-out infinite;
+}
+
+@keyframes caminoS3Sparkle1 {
+  0%,
+  43% {
+    opacity: 0;
+    transform: translate(585px, 602px) scale(0.65) rotate(0deg);
+  }
+
+  47% {
+    opacity: 1;
+    transform: translate(585px, 602px) scale(1) rotate(20deg);
+  }
+
+  54%,
+  100% {
+    opacity: 0;
+    transform: translate(560px, 590px) scale(0.7) rotate(42deg);
+  }
+}
+
+@keyframes caminoS3Sparkle2 {
+  0%,
+  44% {
+    opacity: 0;
+    transform: translate(1045px, 600px) scale(0.65) rotate(0deg);
+  }
+
+  48% {
+    opacity: 1;
+    transform: translate(1045px, 600px) scale(1) rotate(-20deg);
+  }
+
+  55%,
+  100% {
+    opacity: 0;
+    transform: translate(1080px, 590px) scale(0.7) rotate(-42deg);
+  }
+}
+
+@keyframes caminoS3Sparkle3 {
+  0%,
+  48% {
+    opacity: 0;
+    transform: translate(705px, 625px) scale(0.65) rotate(0deg);
+  }
+
+  52% {
+    opacity: 1;
+    transform: translate(705px, 625px) scale(1) rotate(18deg);
+  }
+
+  60%,
+  100% {
+    opacity: 0;
+    transform: translate(682px, 612px) scale(0.7) rotate(38deg);
+  }
+}
+
+@keyframes caminoS3Sparkle4 {
+  0%,
+  49% {
+    opacity: 0;
+    transform: translate(1210px, 630px) scale(0.65) rotate(0deg);
+  }
+
+  53% {
+    opacity: 1;
+    transform: translate(1210px, 630px) scale(1) rotate(-18deg);
+  }
+
+  61%,
+  100% {
+    opacity: 0;
+    transform: translate(1240px, 642px) scale(0.7) rotate(-38deg);
+  }
+}
+
       
 /* ---------- Responsive tuning ---------- */
 
@@ -2006,6 +2502,130 @@
 </g>
   
 </g>
+
+
+<!-- Scene 3 overlay group -->
+<g class="camino-hero__overlay camino-hero__overlay--scene3">
+
+  <!-- Soft side glows to imply the two paths of help -->
+  <ellipse
+    class="camino-hero__s3-side-glow camino-hero__s3-side-glow--left"
+    cx="300"
+    cy="520"
+    rx="330"
+    ry="310"
+  ></ellipse>
+
+  <ellipse
+    class="camino-hero__s3-side-glow camino-hero__s3-side-glow--right"
+    cx="1370"
+    cy="520"
+    rx="300"
+    ry="310"
+  ></ellipse>
+
+  <ellipse
+    class="camino-hero__s3-patient-glow"
+    cx="805"
+    cy="570"
+    rx="170"
+    ry="240"
+  ></ellipse>
+
+  <!-- Glowing road split that aligns with Scene 2 road bridge center -->
+  <g class="camino-hero__s3-road-split">
+    <!-- Left road branch -->
+    <path
+      class="camino-hero__s3-road camino-hero__s3-road--outer camino-hero__s3-road--left"
+      d="M 805 656
+         C 700 590, 575 565, 430 585
+         C 270 608, 130 675, -80 810"
+    ></path>
+
+    <path
+      class="camino-hero__s3-road camino-hero__s3-road--inner camino-hero__s3-road--left"
+      d="M 805 656
+         C 700 590, 575 565, 430 585
+         C 270 608, 130 675, -80 810"
+    ></path>
+
+    <!-- Right road branch -->
+    <path
+      class="camino-hero__s3-road camino-hero__s3-road--outer camino-hero__s3-road--right"
+      d="M 805 656
+         C 940 580, 1078 558, 1228 592
+         C 1400 632, 1545 720, 1725 845"
+    ></path>
+
+    <path
+      class="camino-hero__s3-road camino-hero__s3-road--inner camino-hero__s3-road--right"
+      d="M 805 656
+         C 940 580, 1078 558, 1228 592
+         C 1400 632, 1545 720, 1725 845"
+    ></path>
+  </g>
+
+  <!-- Bubble pop accents. These sit over the existing storyboard bubbles. -->
+  <g class="camino-hero__s3-bubble camino-hero__s3-bubble--left">
+    <circle cx="145" cy="695" r="112"></circle>
+    <circle class="camino-hero__s3-bubble-ring" cx="145" cy="695" r="128"></circle>
+
+    <text x="145" y="652" text-anchor="middle">FREE</text>
+    <text x="145" y="700" text-anchor="middle">CONSULTATION</text>
+    <text x="145" y="748" text-anchor="middle">CONSULTA GRATIS</text>
+  </g>
+
+  <g class="camino-hero__s3-bubble camino-hero__s3-bubble--right">
+    <circle cx="1470" cy="695" r="112"></circle>
+    <circle class="camino-hero__s3-bubble-ring" cx="1470" cy="695" r="128"></circle>
+
+    <text x="1470" y="652" text-anchor="middle">FREE</text>
+    <text x="1470" y="700" text-anchor="middle">CONSULTATION</text>
+    <text x="1470" y="748" text-anchor="middle">CONSULTA GRATIS</text>
+  </g>
+
+  <!-- Camino C pulse above the connecting road -->
+  <g class="camino-hero__s3-c-wrap">
+    <circle class="camino-hero__s3-c-halo" cx="820" cy="125" r="88"></circle>
+
+    <path
+      class="camino-hero__s3-c-path"
+      d="M 858 74
+         C 808 54, 770 82, 766 126
+         C 762 172, 802 200, 852 184"
+    ></path>
+
+    <g class="camino-hero__s3-c-rays">
+      <path d="M 820 34 L820 2"></path>
+      <path d="M 874 52 L900 24"></path>
+      <path d="M 900 112 L936 104"></path>
+      <path d="M 880 184 L910 210"></path>
+      <path d="M 765 54 L738 28"></path>
+      <path d="M 742 126 L706 126"></path>
+    </g>
+  </g>
+
+  <!-- Small sparkles along the two road branches -->
+  <g class="camino-hero__s3-sparkles">
+    <g class="camino-hero__s3-sparkle camino-hero__s3-sparkle--1">
+      <path d="M0,-12 L3,-3 L12,0 L3,3 L0,12 L-3,3 L-12,0 L-3,-3 Z"></path>
+    </g>
+
+    <g class="camino-hero__s3-sparkle camino-hero__s3-sparkle--2">
+      <path d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z"></path>
+    </g>
+
+    <g class="camino-hero__s3-sparkle camino-hero__s3-sparkle--3">
+      <path d="M0,-11 L3,-3 L11,0 L3,3 L0,11 L-3,3 L-11,0 L-3,-3 Z"></path>
+    </g>
+
+    <g class="camino-hero__s3-sparkle camino-hero__s3-sparkle--4">
+      <path d="M0,-10 L3,-3 L10,0 L3,3 L0,10 L-3,3 L-10,0 L-3,-3 Z"></path>
+    </g>
+  </g>
+
+</g>
+
 
 
     
